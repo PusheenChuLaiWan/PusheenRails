@@ -1,0 +1,26 @@
+<script>
+(function worker() { 
+	$.ajax({
+	    type: "GET",
+	    url: "/posts/get_data",
+	    dataType: "html",
+	    success: function(data)
+	    {
+	      $('.result').fadeOut( 200, function(){
+	      		$('.result').html( data ) ; 
+			    $('.result').load('/posts/get_data .table', function(){
+			      	$('.result').fadeIn( 200 ) ;
+			    });
+			    setTimeout(worker, 3000);
+	      }) ; 
+	      
+	    }
+	}); 
+})();
+</script>
+
+<center><h1>DataStream</h1></center>
+<a href="#" class="btn btn-primary">YAYA</a>
+<div class="result">
+	
+</div>
