@@ -1,9 +1,10 @@
+<!--
 <script>
 (function worker() { 
 	$.ajax({
 	    type: "GET",
 	    url: "/posts/get_data",
-	    dataType: "html",
+	    dataType: "json",
 	    success: function(data)
 	    {
 	      $('.result').fadeOut( 200, function(){
@@ -18,9 +19,33 @@
 	}); 
 })();
 </script>
+-->
 
-<center><h1>DataStream</h1></center>
-<a href="#" class="btn btn-primary">YAYA</a>
+<style>
+	.label{
+		font-size: 100px ;
+	}
+
+	.title{
+		font-size: 100px ;
+	}
+</style>
+
+<script>
+(function worker() { 
+	$.ajax({
+	    type: "GET",
+	    url: "/posts/index",
+	    dataType: "json",
+	    success: function(data)
+	    {   
+	    	par = '<center><h1 class="title">Value : <label class="label label-danger">'+ data[0].current_value + '</label></h1></center>'
+	      	$('.result').html( par ) ; 
+			setTimeout(worker, 200);
+	    }
+	});
+})();
+</script>
+<br><br><br>
 <div class="result">
-	
 </div>

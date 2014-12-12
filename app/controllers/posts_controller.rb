@@ -15,6 +15,10 @@ class PostsController < ApplicationController
 			:accept => :json
 		} 
 		@res = JSON.parse( @jsonString )
+		respond_to do |format|
+	      format.html # new.html.erb
+	      format.json { render :json => @jsonString }
+	    end
 	end
 	def get_data
 		@jsonString = 
@@ -27,6 +31,6 @@ class PostsController < ApplicationController
 			} ,
 			:accept => :json
 		} 
-		@res = JSON.parse( @jsonString )
+		
 	end
 end
