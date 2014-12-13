@@ -57,7 +57,7 @@
                 
                         <!-- LOGO -->
                         <div class="logo">
-                            <a href="index.html"><img src="img/logo.png" alt="logo"></a>
+                            <a href="/"><img src="/img/logo.png" alt="logo"></a>
                         </div> <!-- LOGO END -->
                         
                         
@@ -67,14 +67,11 @@
   
                         <nav id="main-nav" class="collapse navbar-collapse navbar-ex1-collapse">
                             <ul>
-                                <li class="current_page_item"><a href="home-2.html">Home</a>
+                                <li class="current_page_item">
+                                  <%= link_to "Home" , root_path %>
                                 </li>
-                                <li><a href="about.html">Pages</a>
-                                    <ul>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
-                                    </ul>
-                                </li>
+                                <li><%= link_to "FAQ / 聯絡我們" , posts_faq_path %> </a></li>
+                                
                                 <li><a href="portfolio-4col.html">預約</a>
                                   <ul>
                                     <li><a href="portfolio-4col.html">座位預約系統</a></li>
@@ -86,7 +83,6 @@
                                         <li><a href="portfolio-4col.html">註冊</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </nav> 
                         <!-- MAIN NAVIGATION END -->
@@ -97,12 +93,12 @@
             <div class="header-bottom-wrap container">
             
                     <div class="header-text">
-                        <h3>Praesent lobortis sapien non leo <a href="#">consectetur</a> sed suscipit. <br>Sed a mi id tortor iaculis pulvinar convallis.</h3>
+                        <h3>讓我們一起享受Ｋ書的愉悅時光～</h3>
                     </div>
                   
                     <div class="header-bottom-elements">
                         <div class="element-wrap">
-                        	<div class="btn">Buy this theme!</div>
+                        	<div class="btn">加入我們享受高級Ｋ書服務</div>
                         </div>
                     </div>
             	
