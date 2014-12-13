@@ -1,3 +1,4 @@
+
 <script>
 
 var bgColor = $('.label-danger').css('background-color') ;  
@@ -5,7 +6,7 @@ var bgColor = $('.label-danger').css('background-color') ;
 (function worker() { 
 	$.ajax({
 	    type: "GET",
-	    url: "/posts/index",
+	    url: "/posts",
 	    dataType: "json",
 	    success: function(data)
 	    {   
@@ -23,6 +24,7 @@ var bgColor = $('.label-danger').css('background-color') ;
 	    		s += '<h1 class="titl"><label class="label label-danger">' + d.datastream_name + " : " + d.current_value + '</label></h1>' ; 
             }
 	    	
+          
             
 	      	$('.result').html( s ) ; 
             $('.label-danger').css('background-color' , bgColor ) ; 
@@ -51,11 +53,6 @@ var bgColor = $('.label-danger').css('background-color') ;
 })();
 </script>
 
-<script>
-
-</script>
-<br><br><br>
-
 
 <!-- FLEX SLIDER -->
     <div class="flexslider">
@@ -77,7 +74,7 @@ var bgColor = $('.label-danger').css('background-color') ;
               </div>
               
             </li>
-            <li style="background: url(img/pattern/vintage_speckles.png);">
+            <li style="background: url(/img/pattern/vintage_speckles.png);">
             
               <div class="container">
                 <div class="row margin-bot">

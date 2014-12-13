@@ -3,21 +3,16 @@
       <div class="container">
           <div class="row">
               <div class="col-md-12 col-sm-12">
-              
                   <!-- TOP BAR NAVIGATION -->
                   <nav id="top-bar-nav" class="hidden-sm hidden-xs">
-                      <ul>
-                          <li><a href="#">Features</a></li>
-                          <li><a href="#">Blog</a></li>
-                          <li><a href="#">Contact</a></li>
-                      </ul>
+                      
                   </nav>
                   <!-- TOP BAR NAVIGATION END-->
                   
                   <!-- TOP BAR TEXT -->
-                  <div class="top-bar-text hidden-sm hidden-xs">
+                  <!--div class="top-bar-text hidden-sm hidden-xs">
                       <p>Call us (123) 456 789</p>
-                  </div>
+                  </div -->
                   <!-- TOP BAR TEXT END -->
                   
                   <!-- TOP BAR SOCIAL ICONS -->
@@ -87,18 +82,32 @@
                                   </li>
                                 <% end %>
                                 
-                                
-                                <li><a href="portfolio-4col.html">預約</a>
-                                  <ul>
-                                    <li><a href="portfolio-4col.html">座位預約系統</a></li>
-                                  </ul>
-                                </li>
-                                <li><a href="portfolio-3col.html">log in</a>
+                                <% if !user_signed_in? %>
+                                  <li><a href="portfolio-4col.html">預約</a>
                                     <ul>
-                                        <li><a href="portfolio-4col.html">登入</a></li>
-                                        <li><a href="portfolio-4col.html">註冊</a></li>
+                                      <li><a href="portfolio-4col.html">座位預約系統</a></li>
                                     </ul>
-                                </li>
+                                  </li>
+                                <% end %>
+
+                                <% if user_signed_in? %>
+                                                
+                                    <li><a>Hi ! <strong><%= current_user.name %></strong></a>
+                                      <ul>
+                                        <li><%= link_to '編輯', edit_user_registration_path, :class => 'navbar-link' %></li>
+                                        <li><%= link_to "登出", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+                                      </ul>
+                                    </li>
+                                 
+                                <% else %>
+                                   <li>
+                                    <%= link_to "登入", new_user_session_path, :class => 'navbar-link'  %>
+                                   </li>
+                          
+                                    <li>
+                                      <%= link_to "註冊", new_user_registration_path, :class => 'navbar-link'  %>
+                                    </li>
+                                 <% end %>
                             </ul>
                         </nav> 
                         <!-- MAIN NAVIGATION END -->
@@ -109,12 +118,12 @@
             <div class="header-bottom-wrap container">
             
                     <div class="header-text">
-                        <h3>讓我們一起享受Ｋ書的愉悅時光～</h3>
+                        <h3 style="color: rgb( 255, 255, 255 )">讓我們一起享受Ｋ書的愉悅時光～</h3>
                     </div>
                     
                     <div class="header-bottom-elements">
                         <div class="element-wrap">
-                        	<div class="btn">加入我們享受高級Ｋ書服務</div>
+                        	<div class="btn"><%= link_to "加入我們享受高級Ｋ書服務", new_user_registration_path, :class => 'navbar-link'  %></div>
                         </div>
                     </div>
             	
