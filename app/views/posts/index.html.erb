@@ -1,4 +1,7 @@
 <script>
+
+var bgColor = $('.label-danger').css('background-color') ;  
+
 (function worker() { 
 	$.ajax({
 	    type: "GET",
@@ -13,49 +16,77 @@
 	    			break ; 
 	    		}
 	    	var s = "";
+
+
 	    	for(var ind in data){
 	    		d = data[ind];
-	    		s += '<h1 class="titl"><label class="label label-danger">' + d.datastream_name + " : " + d.current_value + '</label></h1><br><br>' ; 
-	    	}
+	    		s += '<h1 class="titl"><label class="label label-danger">' + d.datastream_name + " : " + d.current_value + '</label></h1>' ; 
+            }
 	    	
+            
 	      	$('.result').html( s ) ; 
-			setTimeout(worker, 200);
+            $('.label-danger').css('background-color' , bgColor ) ; 
+            
+            if( data[0].current_value < 35 ){
+                $('.label-danger').animate({ backgroundColor: 'rgb(0 , 155, 255 )'} , 1000 , 
+                    function(){
+                        bgColor = $('.label-danger').css('background-color') ; 
+                          
+                    }
+                ); 
+            }
+
+            else{
+                $('.label-danger').animate({ backgroundColor: 'rgb(255 , 255, 0 )'} , 1000 , 
+                    function(){
+                        bgColor = $('.label-danger').css('background-color') ; 
+                         
+                    }
+                ); 
+            }
+            
+    	   setTimeout(worker, 2000);   
 	    }
 	});
 })();
 </script>
+
+<script>
+
+</script>
 <br><br><br>
 
+
 <!-- FLEX SLIDER -->
-	<div class="flexslider">
+    <div class="flexslider">
           <ul class="slides" style="background: #F5F5F5 ; height: 500px;">
             <li style="background: #EEE; height: 400px;">
             
               <div class="container">
-              	<div class="row margin-bot">
-                	<div class="col-md-4 col-sm-4">
-                		<div class="result"></div>
-                    	<h2 class="h-light highlight1">Welcome to Gravida!</h2><br><br>
-                        <p>Nam lobortis vel tortor vitae semper. Nunc bibendum, velit pulvinar gravida consequat, metus nunc eleifend diam, vitae fringilla quam.<br><br> Fusce vehicula aliquam libero eu aliquet. Proin feugiat, urna sit amet dignissim suscipit.</p><br>
+                <div class="row margin-bot">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="result"></div>
+                        <h2 class="h-light highlight1">我們是Pusheen出來玩</h2><br><br>
+                        <p>（簡介系統功能）<br><br> Fusce vehicula aliquam libero eu aliquet. Proin feugiat, urna sit amet dignissim suscipit.</p><br>
                         <a href="#" class="btn btn-sm">Learn more</a>
                     </div>
                     <div class="col-md-8 col-sm-8">
-                    	<img src="img/flex-s1.png" alt="home">
+                        <img src="img/pusheen1.jpg" alt="home">
                     </div>
-              	</div>
+                </div>
               </div>
               
             </li>
             <li style="background: url(img/pattern/vintage_speckles.png);">
             
               <div class="container">
-              	<div class="row margin-bot">
-                	<div class="col-md-4 col-sm-4">
-                    	<h2 class="h-light highlight1">Flexslider 2.0</h2><br>
+                <div class="row margin-bot">
+                    <div class="col-md-4 col-sm-4">
+                        <h2 class="h-light highlight1">使用方法（？</h2><br>
                         <h5 class="h-light highlight3">Unlimited possibilities</h5><br><br>
                         <p>Nam lobortis vel tortor vitae semper. Nunc bibendum, velit pulvinar gravida consequat, metus nunc eleifend.</p><br><br>
                         <div class="text-box">
-                        	<div class="content-padding">Sign up to newsletter:
+                            <div class="content-padding">Sign up to newsletter:
                                 <form role="form">
                                   <fieldset>
                                     <div class="input-group" style="background: #F5F5F5; margin-top: 5px;">
@@ -63,296 +94,278 @@
                                         <span class="input-group-addon"><i class="icon-envelope"></i></span>
                                     </div>
                                   </fieldset>
-                        		<a href="#" class="btn btn-sm">Sign up</a>
+                                <a href="#" class="btn btn-sm">Sign up</a>
                                 </form>
-                    		</div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-8">
-                    	<img src="img/flex_s2.png" alt="home">
+                        <img src="img/pusheen2.jpg" alt="home">
                     </div>
-              	</div>
+                </div>
               </div>
               
             </li>
             <li>
             
-              <!-- <div class="container">
-              	<div class="row margin-bot">
-                	<div class="col-md-4 col-sm-4">
-                    	<h2 class="h-light highlight1">Video Slider</h2><br><br>
+<!--               <div class="container">
+                <div class="row margin-bot">
+                    <div class="col-md-4 col-sm-4">
+                        <h2 class="h-light highlight1">Video Slider</h2><br><br>
                         <p> Fusce vehicula aliquam libero eu aliquet. Proin feugiat, urna sit amet dignissim suscipit.<br><br> Nam lobortis vel tortor vitae semper. Nunc bibendum, velit pulvinar gravida consequat, metus nunc eleifend diam, vitae fringilla quam.</p><br>
                         <a href="#" class="btn btn-sm">Learn more</a>
                     </div>
                     <div class="col-md-8 col-sm-8">
-                    	<div class="fit-vid"><iframe src="http://player.vimeo.com/video/42381325?title=0&amp;byline=0&amp;portrait=0&amp;color=ff6969" width="620" height="351" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+                        <div class="fit-vid"><iframe src="http://player.vimeo.com/video/42381325?title=0&amp;byline=0&amp;portrait=0&amp;color=ff6969" width="620" height="351" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
                         <img src="img/flex-video-shadow-01.png" alt="shadow">
                     </div>
-              	</div>
+                </div>
               </div> -->
               
             </li>
           </ul>
     </div>
 
-	<script type="text/javascript" charset="utf-8">
-		$(document).ready(function (){ 
-		  $('.flexslider').flexslider({
-    		prevText: "",
-    		nextText: "", 
-			pauseOnHover: true,
-			video: true,      
-		  });
-		});
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function (){ 
+          $('.flexslider').flexslider({
+            prevText: "",
+            nextText: "", 
+            pauseOnHover: true,
+            video: true,      
+          });
+        });
     </script>
     
     <!-- CONTENT -->
     <div id="content">
     
-    	<div class="full-width fw-border-bottom" style="background: url(img/pattern/geometry.png);">
-        	<div class="container">
-            	<div class="row margin-bot">
-                    
-                    	<div class="col-md-3 col-sm-3 animation fadeInLeft">
-                        	<div class="service">
-                            	<div class="service-heading clearfix">
-                                	<div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">1</div>
-                                    <h4>Duis quis interdum metus.</h4>
+        <div class="full-width fw-border-bottom" style="background: url(img/pattern/geometry.png);">
+            <div class="container">
+                <div class="row margin-bot">
+                    <div class="title"><h5>使用教學</h5></div>
+                        <div class="col-md-3 col-sm-3 animation fadeInLeft">
+                            <div class="service">
+                                <div class="service-heading clearfix">
+                                    <div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">1</div>
+                                    <h4>步驟一</h4>
                                 </div>
                                 <div class="service-text" style="height: px">
-                                	<p>Donec sed elit ut velit porta gravida id non eros ut nec. Aliquam nec mi nisl. Aliquam tellus dolor.</p>
+                                    <p>blablablablablablabla....</p>
                                 </div>
                                 <a class="service-learn-more btn btn-xs" href="#">Learn more</a>
                             </div>
                         </div>
                     
-                    	<div class="col-md-3 col-sm-3 animation fadeInLeft">
-                        	<div class="service">
-                            	<div class="service-heading clearfix">
-                                	<div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">2</div>
-                                    <h4>Vestibulum blandit tempus.</h4>
+                        <div class="col-md-3 col-sm-3 animation fadeInLeft">
+                            <div class="service">
+                                <div class="service-heading clearfix">
+                                    <div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">2</div>
+                                    <h4>步驟二</h4>
                                 </div>
                                 <div class="service-text" style="height: px">
-                                	<p>Nulla enim purus, congue a vehicula ac, sollicitudin ut sem. Pellentesque aliquam.</p>
+                                    <p>blablablablablablabla....</p>
                                 </div>
                                 <a class="service-learn-more btn btn-xs" href="#">Learn more</a>
                             </div>
                         </div>
                     
-                    	<div class="col-md-3 col-sm-3 animation fadeInRight">
-                        	<div class="service">
-                            	<div class="service-heading clearfix">
-                                	<div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">3</div>
-                                    <h4>Aliquam males dignissim.</h4>
+                        <div class="col-md-3 col-sm-3 animation fadeInRight">
+                            <div class="service">
+                                <div class="service-heading clearfix">
+                                    <div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">3</div>
+                                    <h4>步驟三</h4>
                                 </div>
                                 <div class="service-text" style="height: 92px">
-                                	<p>Nunc aliquet tincidunt metus, sit amet mattis lectus sodales ac. </p>
+                                    <p>blablablablablablabla....</p>
                                 </div>
                                 <a class="service-learn-more btn btn-xs" href="#">Learn more</a>
                             </div>
                         </div>
                     
-                    	<div class="col-md-3 col-sm-3 animation fadeInRight">
-                        	<div class="service">
-                            	<div class="service-heading clearfix">
-                                	<div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">4</div>
-                                    <h4>Fusce suscipit placerat.</h4>
+                        <div class="col-md-3 col-sm-3 animation fadeInRight">
+                            <div class="service">
+                                <div class="service-heading clearfix">
+                                    <div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">4</div>
+                                    <h4>步驟四</h4>
                                 </div>
                                 <div class="service-text" style="height: px">
-                                	<p>Praesent dui est, cursus vel tellus dictum, sagittis tincidunt ipsum. Mauris accumsan eu.</p>
+                                    <p>blablablablablablabla....</p>
                                 </div>
                                 <a class="service-learn-more btn btn-xs" href="#">Learn more</a>
                             </div>
                         </div>
-                	
+                    
                 </div>
             </div>
         </div>
         
-    	<!-- CONTAINER -->
-    	<div class="container">
-        	<div class="row">
-            	<div class="col-md-12 col-sm-12 col-sm-12 animation fadeInLeft" >
-                	<div class="title"><h5>Latest works</h5></div>
-                </div>
-            </div>
-            
-            <div class="row margin-bot">
-            
-            	<div class="col-md-8 col-sm-8 animation fadeInLeft">
-                	<div class="title"><h5>Our features</h5></div>
-                    
-                    <!-- TABS -->
-                    <div class="tab">
-                    
-                        <ul class="nav nav-tabs" id="services-tab">
-                          <li class="active"><a href="#tab-1" data-toggle="tab">Cras vitae lorem</a></li>
-                          <li><a href="#tab-2" data-toggle="tab">Nam nibh nunc</a></li>
-                          <li><a href="#tab-3" data-toggle="tab">Praesent ac</a></li>
-                        </ul>
-                        
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="tab-1">
-                            <p>Nunc aliquet tincidunt metus, sit amet mattis lectus sodales ac. Suspendisse rhoncus dictum eros, ut egestas eros luctus eget. Nam nibh sem, mattis et feugiat ut, porttitor nec risus.<br/><br/> Vestibulum porttitor justo libero, ut commodo lacus tristique ac. Ut non erat pellentesque, cursus metus at, dictum odio. Phasellus vehicula accumsan ante ac venenatis. In id eros urna.</p>
-                          </div>
-                          <div class="tab-pane" id="tab-2">
-                            <p>Praesent facilisis tincidunt massa. In convallis risus id sem sagittis pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-                          </div>
-                          <div class="tab-pane" id="tab-3">
-                            <p>Nam id volutpat purus, in porta sem. Nulla quam tellus, egestas vitae condimentum at, aliquam sit amet lacus. Aliquam ac faucibus lorem, quis laoreet dolor. Nam vehicula odio ante, sit amet bibendum ipsum mattis non. In feugiat neque ac blandit pellentesque. </p>                              
-                          </div>
-                        </div>
-
-                        
-                    </div>
-                    <!-- TABS END -->
-                	
-                </div>
-                
-                <!-- TESTIMONIALS -->
-                <div class="col-md-4 col-sm-4 animation fadeInRight">
-					<div class="title"><h5>Testimonials</h5></div>
-                    
-                    <div id="testimonial-carousel" class="testimonial carousel slide">
-                        <div class="carousel-inner">
-                        	<div class="active item">
-                            	<div class="testimonial-item">
-                                    <div class="icon"><i class="icon-quote-right"></i></div>
-                                    <blockquote>
-                                        <p>Donec convallis, metus nec tempus aliquet, nunc metus adipiscing leo, a lobortis nisi dui ut odio. Nullam ultrices, eros accumsan vulputate faucibus, turpis tortor dictum dolor.</p>
-                                    </blockquote>
-                                    <div class="icon-tr"></div>
-                                    <div class="testimonial-review">
-                                    	<small>Adrian Lampart, Leopard</small>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        	<div class="item">
-                            	<div class="testimonial-item">
-                                    <div class="icon"><i class="icon-quote-right"></i></div>
-                                    <blockquote>
-                                        <p>Nunc aliquet tincidunt metus, sit amet mattis lectus sodales ac. Suspendisse rhoncus dictum eros, ut egestas eros luctus eget. Nam nibh sem, mattis et feugiat ut, porttitor nec risus.</p>
-                                    </blockquote>
-                                    <div class="icon-tr"></div>
-                                    <div class="testimonial-review">
-                                    	<small>John Doe, Google</small>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="testimonial-buttons"><a href="#testimonial-carousel" data-slide="prev"><i class="icon-chevron-left"></i></a>&#32;
-                        <a href="#testimonial-carousel" data-slide="next"><i class="icon-chevron-right"></i></a></div>
-                    </div>
-                </div><!-- TESTIMONIALS END -->
-            
-            </div>
-            
-        </div> <!-- CONTAINER END -->
-        
+        <!-- CONTAINER -->
         <div class="full-width fw-borders" style="background: url(img/pattern/fabric_of_squares_gray.png)">
-        	<div class="container">
-                <!-- LATEST POSTS / TESTIMONIALS -->
-                <div class="row margin-bot">
-                
-                    <!-- LATEST POSTS -->
-                    <div class="col-md-3 col-sm-3 animation fadeInLeft">
-                        <div class="title"><h5>Latest posts</h5></div>
-                        <p class="text-muted">Sed ullamcorper elementum risus vitae pellentesque. Morbi vehicula dolor ligula, et sodales est scelerisque egestas. </p><br>
-                        <a href="blog.html" class="btn">Read the blog</a>
+        <div class="container">
+            <div class="row">
+                <div class="title"><h5>Meet the Team</h5></div>
+                      
+                      <div class="row margin-bot">
                         
-                    </div>
-                    
-                    <div class="col-md-3 col-sm-3">         
-                        <!-- LATEST POST ITEM -->
-                            <div class="latest-post-item animation flipInY">
-                                <a href="blog-post.html"><img src="img/blog-img-1-latest.png" alt=""></a>
-                                <div class="latest-post-content">
-                                    <span class="latest-post-info"><i class="icon-bookmark-empty"></i>&#32;Mar 27 by Adrian &middot; <a href="blog-post.html#comments"><i class="icon-comment-alt"></i>&#32;15</a></span>
-                                    <a href="blog-post.html"><h5>In porta enim non dolor posuere ut rhoncus leo tincidunt. Cras egeta tincidunt volutpat leo.</h5></a>
-                                    <p>Donec convallis, metus nec tempus aliquet [...]</p>
-                                </div>
-                            </div>
-                    </div>
-                    
-                    <div class="col-md-3 col-sm-3">         
-                        <!-- LATEST POST ITEM -->
-                            <div class="latest-post-item animation flipInY">
-                                <a href="blog-post.html"><img src="img/blog-img-2-latest.png" alt=""></a>
-                                <div class="latest-post-content">
-                                    <span class="latest-post-info"><i class="icon-bookmark-empty"></i>&#32;Mar 27 by Adrian &middot; <a href="blog-post.html#comments"><i class="icon-comment-alt"></i>&#32;15</a></span>
-                                    <a href="blog-post.html"><h5>Etiam feugiat justo id mi mattis pretium. Sed vestibulum mollis mollis.</h5></a>
-                                    <p>Praesent non dui facilisis justo pharetra venenatis [...]</p>
-                                </div>
-                            </div>
-                    </div>
-                    
-                    <div class="col-md-3 col-sm-3">         
-                        <!-- LATEST POST ITEM -->
-                            <div class="latest-post-item animation flipInY">
-                                <a href="blog-post.html"><img src="img/blog-img-3-latest.png" alt=""></a>
-                                <div class="latest-post-content">
-                                    <span class="latest-post-info"><i class="icon-bookmark-empty"></i>&#32;Mar 27 by Adrian &middot; <a href="blog-post.html#comments"><i class="icon-comment-alt"></i>&#32;15</a></span>
-                                    <a href="blog-post.html"><h5>Pellentesque accumsan neque.</h5></a>
-                                    <p>Nulla enim purus, congue a vehicula ac [...]</p>
-                                </div>
-                            </div>
-                    </div> 
-                    
-                    
-                </div><!-- LATEST POSTS / TESTIMONIALS END -->
-            </div>
-        </div>
+                          
+                        <div class="col-md-6 col-sm-4">
+                            <h2 class="h-light highlight1">"Pusheen出來玩"</h2><br><br>
+                              <p>（看要加什麼團隊簡介XD）<br><br> Fusce vehicula aliquam libero eu aliquet. Proin feugiat, urna sit amet dignissim suscipit.</p><br>
+                              <a href="#" class="btn btn-sm">Learn more</a>
+                          </div>
+                        
+
+
+                          <!-- TEAM PERSON -->
+                        <div class="col-md-3 col-sm-3 animation flipInY">
+                            <div class="team-person">
+                                <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
+                                  <div class="team-person-info">
+                                    <div class="team-person-name">
+                                          <h4>戴宏穎</h4>
+                                          <span class="function">Chief Executive Officer</span>
+                                      </div>
+                                      <div class="team-person-text" style="height: px">
+                                        <p>blablablablablablablabla...... </p>
+                                      </div>
+                                      <div class="team-person-social">
+                                        <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- TEAM PERSON END -->
+                        
+                          <!-- TEAM PERSON -->
+                        <div class="col-md-3 col-sm-4 animation flipInY">
+                            <div class="team-person">
+                                <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
+                                  <div class="team-person-info">
+                                    <div class="team-person-name">
+                                          <h4>楊宗翰</h4>
+                                          <span class="function">Chief Executive Officer</span>
+                                      </div>
+                                      <div class="team-person-text" style="height: px">
+                                        <p>blablablablablablablabla...... </p>
+                                      </div>
+                                      <div class="team-person-social">
+                                        <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                          </div>
+
+                        </div>
+                      
+                      <div class="row margin-bot">
+                        <div class="col-md-3 col-sm-3 animation flipInY">
+                          </div>
+
+                          <div class="col-md-3 col-sm-4 animation flipInY">
+                            <div class="team-person">
+                                <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
+                                  <div class="team-person-info">
+                                    <div class="team-person-name">
+                                          <h4>林致民</h4>
+                                          <span class="function">Chief Executive Officer</span>
+                                      </div>
+                                      <div class="team-person-text" style="height: px">
+                                        <p>blablablablablablablabla...... </p>
+                                      </div>
+                                      <div class="team-person-social">
+                                        <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- TEAM PERSON END -->
+                        
+                          <!-- TEAM PERSON -->
+                        <div class="col-md-3 col-sm-4 animation flipInY">
+                            <div class="team-person">
+                                <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
+                                  <div class="team-person-info">
+                                    <div class="team-person-name">
+                                          <h4>許佑瑋</h4>
+                                          <span class="function">Chief Executive Officer</span>
+                                      </div>
+                                      <div class="team-person-text" style="height: px">
+                                        <p>blablablablablablablabla...... </p>
+                                      </div>
+                                      <div class="team-person-social">
+                                        <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- TEAM PERSON END -->
+                          <!-- TEAM PERSON -->
+                        <div class="col-md-3 col-sm-4 animation flipInY">
+                            <div class="team-person">
+                                <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
+                                  <div class="team-person-info">
+                                    <div class="team-person-name">
+                                          <h4>林詩雅</h4>
+                                          <span class="function">Chief Executive Officer</span>
+                                      </div>
+                                      <div class="team-person-text" style="height: px">
+                                        <p>blablablablablablablabla...... </p>
+                                      </div>
+                                      <div class="team-person-social">
+                                        <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- TEAM PERSON END -->
+                      </div>
+                <!-- <div class="col-md-12 col-sm-12 col-sm-12 animation fadeInLeft" >
+                    <div class="title"><h5>Latest works</h5></div>
+                  </div> -->
+              </div>
+              
+              
+              
+              
+          </div> <!-- CONTAINER END -->
+        </div> 
         
         <div class="container">
             
-			<script>
-			$(window).load(function() {
-				$("#clients").flexisel({
-					enableResponsiveBreakpoints: true,
-					visibleItems: 5,
-					animationSpeed: 800,
-					autoPlay: true,
-					autoPlaySpeed: 5000,
-					pauseOnHover: true,
-					responsiveBreakpoints: { 
-						portrait: { 
-							changePoint:480,
-							visibleItems: 1
-						}, 
-						landscape: { 
-							changePoint:640,
-							visibleItems: 2
-						},
-						tablet: { 
-							changePoint:991,
-							visibleItems: 4
-						}
-					}
-				}); 
-			});                       
+            <script>
+            $(window).load(function() {
+                $("#clients").flexisel({
+                    enableResponsiveBreakpoints: true,
+                    visibleItems: 5,
+                    animationSpeed: 800,
+                    autoPlay: true,
+                    autoPlaySpeed: 5000,
+                    pauseOnHover: true,
+                    responsiveBreakpoints: { 
+                        portrait: { 
+                            changePoint:480,
+                            visibleItems: 1
+                        }, 
+                        landscape: { 
+                            changePoint:640,
+                            visibleItems: 2
+                        },
+                        tablet: { 
+                            changePoint:991,
+                            visibleItems: 4
+                        }
+                    }
+                }); 
+            });                       
             </script>
-            
-            <div class="row margin-bot">
-            	<div class="col-md-12 col-sm-12 animation flipInX">
-					<div class="title"><h5>We worked for</h5></div>
-                    
-                        <!-- <ul id="clients"> 
-                            <li><img src="img/logo.png" alt=""></li>
-                            <li><img src="img/logo@2x.png" alt=""></li>
-                            <li class="als-item"><img src="img/client_gravida.png" alt=""></li>    
-                            <li><img src="img/logo@2x.png" alt=""></li>
-                            <li class="als-item"><img src="img/client_gravida.png" alt=""></li>     
-                            <li><img src="img/logo@2x.png" alt=""></li>
-                            <li class="als-item"><img src="img/client_gravida.png" alt=""></li> 
-                            <li><img src="img/logo@2x.png" alt=""></li>   
-                        </ul> -->   
-                    
-                </div>
-            </div>            
+                     
             
          </div>  
           
-    </div> <!-- CONTENT END -->   
-       
+    </div> <!-- CONTENT END -->
