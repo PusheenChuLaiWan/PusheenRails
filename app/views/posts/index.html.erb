@@ -23,11 +23,11 @@
 
 <style>
 	.label{
-		font-size: 100px ;
+		font-size: 40px ;
 	}
 
 	.title{
-		font-size: 100px ;
+		font-size: 40px ;
 	}
 </style>
 
@@ -39,13 +39,23 @@
 	    dataType: "json",
 	    success: function(data)
 	    {   
-	    	par = '<center><h1 class="title">Value : <label class="label label-danger">'+ data[0].current_value + '</label></h1></center>'
-	      	$('.result').html( par ) ; 
+	    	var tar = -1 ; 
+	    	for( var i = 0 ; i < data.length; ++i )
+	    		if( data[i].datastream_name == "current_dist" ){
+	    			tar = i ; 
+	    			break ; 
+	    		}
+	    	var s = "";
+	    	for(var ind in data){
+	    		d = data[ind];
+	    		s += '<h1 class="title"><label class="label label-danger">' + d.datastream_name + " : " + d.current_value + '</label></h1><br><br>' ; 
+	    	}
+	    	
+	      	$('.result').html( s ) ; 
 			setTimeout(worker, 200);
 	    }
 	});
 })();
 </script>
 <br><br><br>
-<div class="result">
-</div>
+<div class="result"></div>

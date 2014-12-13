@@ -10,7 +10,18 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+
  *= require_tree .
  *= require_self
+ *= require css/font-awesome.min
+ *= require css/colors/color-blue
+ *= require css/colors/color-green
+ *= require css/colors/color-orange
+ *= require css/colors/color-red
+ *= require css/colors/color-turq
+ *= require style
+ *= require css/shortcodes
+ *= require css/social_foundicons
+ *= require font-awesome.min
  */
 @import 'bootstrap' ; 
