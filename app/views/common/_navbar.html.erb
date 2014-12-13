@@ -117,15 +117,13 @@
             </div>     
             <div class="header-bottom-wrap container">
             
-                    <div class="header-text">
-                        <h3 style="color: rgb( 255, 255, 255 )">讓我們一起享受Ｋ書的愉悅時光～</h3>
+                    <div class="header-text container">
+                        <h3 class="h-light">讓我們一起享受Ｋ書的愉悅時光～</h3>
                     </div>
                     
-                    <div class="header-bottom-elements">
-                        <div class="element-wrap">
-                        	<div><%= link_to "加入我們享受高級Ｋ書服務", new_user_registration_path, :class => 'navbar-link btn' %></div>
-                        </div>
-                    </div>
+                    <% if !current_user %>  
+                      	<div><%= link_to "加入我們享受高級Ｋ書服務", new_user_registration_path, :class => 'navbar-link btn pull-right' %></div>
+                    <% end %>
             	
             </div>
             
