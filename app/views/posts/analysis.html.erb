@@ -1,0 +1,53 @@
+<script>
+    var bgColor = $('.label-danger').css('background-color') ;  
+    (function worker() { 
+        $.ajax({
+            type: "GET",
+            url: "/posts",
+            dataType: "json",
+            success: function(data)
+            {   
+                var tar = -1 ; 
+                for( var i = 0 ; i < data.length; ++i )
+                if( data[i].datastream_name == "current_dist" ){
+                    tar = i ; 
+                    break ; 
+                }
+                var s = "";
+
+
+                for(var ind in data){
+                    d = data[ind];
+                    s += '<h1 class="titl"><label class="label label-danger">' + d.datastream_name + " : " + d.current_value + '</label></h1>' ; 
+                }
+
+
+
+                $('.result').html( s ) ; 
+                $('.label-danger').css('background-color' , bgColor ) ; 
+
+                if( data[0].current_value < 35 ){
+                    $('.label-danger').animate({ backgroundColor: 'rgb(0 , 155, 255 )'} , 1000 , 
+                    function(){
+                        bgColor = $('.label-danger').css('background-color') ; 
+
+                    }
+                    ); 
+                }
+
+                else{
+                    $('.label-danger').animate({ backgroundColor: 'rgb(255 , 255, 0 )'} , 1000 , 
+                    function(){
+                        bgColor = $('.label-danger').css('background-color') ; 
+
+                    }
+                    ); 
+                }
+
+                setTimeout(worker, 2000);   
+            }
+        });
+    })();
+</script>
+
+<div class="result"></div>

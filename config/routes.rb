@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'posts/faq'
-  get 'posts/get_data'
+  get 'posts/analysis'
   
   resources :posts, except:[ :show ] 
   
