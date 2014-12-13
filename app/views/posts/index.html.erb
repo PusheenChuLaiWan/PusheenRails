@@ -1,335 +1,296 @@
-
 <script>
-
-var bgColor = $('.label-danger').css('background-color') ;  
-
-(function worker() { 
-	$.ajax({
-	    type: "GET",
-	    url: "/posts",
-	    dataType: "json",
-	    success: function(data)
-	    {   
-	    	var tar = -1 ; 
-	    	for( var i = 0 ; i < data.length; ++i )
-	    		if( data[i].datastream_name == "current_dist" ){
-	    			tar = i ; 
-	    			break ; 
-	    		}
-	    	var s = "";
+    var bgColor = $('.label-danger').css('background-color') ;  
+    (function worker() { 
+        $.ajax({
+            type: "GET",
+            url: "/posts",
+            dataType: "json",
+            success: function(data)
+            {   
+                var tar = -1 ; 
+                for( var i = 0 ; i < data.length; ++i )
+                if( data[i].datastream_name == "current_dist" ){
+                    tar = i ; 
+                    break ; 
+                }
+                var s = "";
 
 
-	    	for(var ind in data){
-	    		d = data[ind];
-	    		s += '<h1 class="titl"><label class="label label-danger">' + d.datastream_name + " : " + d.current_value + '</label></h1>' ; 
-            }
-	    	
-          
-            
-	      	$('.result').html( s ) ; 
-            $('.label-danger').css('background-color' , bgColor ) ; 
-            
-            if( data[0].current_value < 35 ){
-                $('.label-danger').animate({ backgroundColor: 'rgb(0 , 155, 255 )'} , 1000 , 
+                for(var ind in data){
+                    d = data[ind];
+                    s += '<h1 class="titl"><label class="label label-danger">' + d.datastream_name + " : " + d.current_value + '</label></h1>' ; 
+                }
+
+
+
+                $('.result').html( s ) ; 
+                $('.label-danger').css('background-color' , bgColor ) ; 
+
+                if( data[0].current_value < 35 ){
+                    $('.label-danger').animate({ backgroundColor: 'rgb(0 , 155, 255 )'} , 1000 , 
                     function(){
                         bgColor = $('.label-danger').css('background-color') ; 
-                          
-                    }
-                ); 
-            }
 
-            else{
-                $('.label-danger').animate({ backgroundColor: 'rgb(255 , 255, 0 )'} , 1000 , 
+                    }
+                    ); 
+                }
+
+                else{
+                    $('.label-danger').animate({ backgroundColor: 'rgb(255 , 255, 0 )'} , 1000 , 
                     function(){
                         bgColor = $('.label-danger').css('background-color') ; 
-                         
+
                     }
-                ); 
+                    ); 
+                }
+
+                setTimeout(worker, 2000);   
             }
-            
-    	   setTimeout(worker, 2000);   
-	    }
-	});
-})();
+        });
+    })();
 </script>
-    <!-- FLEX SLIDER -->
-    <div class="flexslider">
-          <ul class="slides" style="background: #F5F5F5 ; height: 500px;">
-            <li style="background: #EEE; height: 400px;">
-            
-              <div class="container">
-                <div class="row margin-bot">
-                    <div class="col-md-4 col-sm-4">
-                        <h2 class="h-light highlight1">我們是Pusheen出來玩</h2><br><br>
-                        <p>（簡介系統功能）<br><br> Fusce vehicula aliquam libero eu aliquet. Proin feugiat, urna sit amet dignissim suscipit.</p><br>
-                        <a href="#" class="btn btn-sm">Learn more</a>
-                    </div>
-                    <div class="col-md-8 col-sm-8">
-                        <img src="img/pusheen1.jpg" alt="home">
-                    </div>
+<!-- FLEX SLIDER -->
+<div class="flexslider">
+    <ul class="slides" style="background: #F5F5F5 ; height: 500px;">
+        <li style="background: #EEE; height: 400px;">
+
+        <div class="container">
+            <div class="row margin-bot">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <h2 class="h-light highlight1">我們是Pusheen出來玩</h2><br><br>
+                    <p>（簡介系統功能）<br><br> Fusce vehicula aliquam libero eu aliquet. Proin feugiat, urna sit amet dignissim suscipit.</p><br>
+                    <a href="#" class="btn btn-sm">Learn more</a>
                 </div>
-              </div>
-              
-            </li>
-            <li style="background: url(img/pattern/vintage_speckles.png);">
-            
-              <div class="container">
-                <div class="row margin-bot">
-                    <div class="col-md-4 col-sm-4">
-                        <h2 class="h-light highlight1">使用方法（？</h2><br>
-                        <h5 class="h-light highlight3">Unlimited possibilities</h5><br><br>
-                        <p>Nam lobortis vel tortor vitae semper. Nunc bibendum, velit pulvinar gravida consequat, metus nunc eleifend.</p><br><br>
-                        <div class="text-box">
-                            <div class="content-padding">Sign up to newsletter:
-                                <form role="form">
-                                  <fieldset>
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    <img src="img/pusheen1.jpg" alt="home">
+                </div>
+            </div>
+        </div>
+
+        </li>
+        <li style="background: url(img/pattern/vintage_speckles.png);">
+        <div class="container">
+            <div class="row margin-bot">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <h2 class="h-light highlight1">使用方法（？</h2><br>
+                    <h5 class="h-light highlight3">Unlimited possibilities</h5><br><br>
+                    <p>Nam lobortis vel tortor vitae semper. Nunc bibendum, velit pulvinar gravida consequat, metus nunc eleifend.</p><br><br>
+                    <div class="text-box">
+                        <div class="content-padding">Sign up to newsletter:
+                            <form role="form">
+                                <fieldset>
                                     <div class="input-group" style="background: #F5F5F5; margin-top: 5px;">
                                         <input name="s" id="s" type="text" value="" placeholder="Email address ...">
                                         <span class="input-group-addon"><i class="icon-envelope"></i></span>
                                     </div>
-                                  </fieldset>
+                                </fieldset>
                                 <a href="#" class="btn btn-sm">Sign up</a>
-                                </form>
-                            </div>
+                            </form>
                         </div>
-                    </div>
-                    <div class="col-md-8 col-sm-8">
-                        <img src="img/pusheen2.jpg" alt="home">
                     </div>
                 </div>
-              </div>
-              
-            </li>
-            <li>
-            
-<!--               <div class="container">
-                <div class="row margin-bot">
-                    <div class="col-md-4 col-sm-4">
-                        <h2 class="h-light highlight1">Video Slider</h2><br><br>
-                        <p> Fusce vehicula aliquam libero eu aliquet. Proin feugiat, urna sit amet dignissim suscipit.<br><br> Nam lobortis vel tortor vitae semper. Nunc bibendum, velit pulvinar gravida consequat, metus nunc eleifend diam, vitae fringilla quam.</p><br>
-                        <a href="#" class="btn btn-sm">Learn more</a>
-                    </div>
-                    <div class="col-md-8 col-sm-8">
-                        <div class="fit-vid"><iframe src="http://player.vimeo.com/video/42381325?title=0&amp;byline=0&amp;portrait=0&amp;color=ff6969" width="620" height="351" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
-                        <img src="img/flex-video-shadow-01.png" alt="shadow">
-                    </div>
-                </div>
-              </div> -->
-              
-            </li>
-          </ul>
-    </div>
-
-    <script type="text/javascript" charset="utf-8">
-        $(document).ready(function (){ 
-          $('.flexslider').flexslider({
-            prevText: "",
-            nextText: "", 
-            pauseOnHover: true,
-            video: true,      
-          });
-        });
-    </script>
-    
-    <!-- CONTENT -->
-    <div id="content">
-    
-        <div class="full-width fw-border-bottom" style="background: url(img/pattern/geometry.png);">
-            <div class="container">
-                <div class="row margin-bot">
-                    <div class="title"><h5>使用教學</h5></div>
-                        <div class="col-md-3 col-sm-3 animation fadeInLeft">
-                            <div class="service">
-                                <div class="service-heading clearfix">
-                                    <div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">1</div>
-                                    <h4>步驟一</h4>
-                                </div>
-                                <div class="service-text" style="height: px">
-                                    <p>blablablablablablabla....</p>
-                                </div>
-                                <a class="service-learn-more btn btn-xs" href="#">Learn more</a>
-                            </div>
-                        </div>
-                    
-                        <div class="col-md-3 col-sm-3 animation fadeInLeft">
-                            <div class="service">
-                                <div class="service-heading clearfix">
-                                    <div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">2</div>
-                                    <h4>步驟二</h4>
-                                </div>
-                                <div class="service-text" style="height: px">
-                                    <p>blablablablablablabla....</p>
-                                </div>
-                                <a class="service-learn-more btn btn-xs" href="#">Learn more</a>
-                            </div>
-                        </div>
-                    
-                        <div class="col-md-3 col-sm-3 animation fadeInRight">
-                            <div class="service">
-                                <div class="service-heading clearfix">
-                                    <div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">3</div>
-                                    <h4>步驟三</h4>
-                                </div>
-                                <div class="service-text" style="height: 92px">
-                                    <p>blablablablablablabla....</p>
-                                </div>
-                                <a class="service-learn-more btn btn-xs" href="#">Learn more</a>
-                            </div>
-                        </div>
-                    
-                        <div class="col-md-3 col-sm-3 animation fadeInRight">
-                            <div class="service">
-                                <div class="service-heading clearfix">
-                                    <div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">4</div>
-                                    <h4>步驟四</h4>
-                                </div>
-                                <div class="service-text" style="height: px">
-                                    <p>blablablablablablabla....</p>
-                                </div>
-                                <a class="service-learn-more btn btn-xs" href="#">Learn more</a>
-                            </div>
-                        </div>
-                    
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    <img src="img/pusheen2.jpg" alt="home">
                 </div>
             </div>
         </div>
-        
-        <!-- CONTAINER -->
-        <div class="full-width fw-borders" style="background: url(img/pattern/fabric_of_squares_gray.png)">
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function (){ 
+            $('.flexslider').flexslider({
+                prevText: "",
+                nextText: "", 
+                pauseOnHover: true,
+                video: true,      
+                });
+            });
+</script>
+
+<!-- CONTENT -->
+<div id="content">
+
+    <div class="full-width fw-border-bottom" style="background: url(img/pattern/geometry.png);">
+        <div class="container">
+            <div class="row margin-bot">
+                <div class="title"><h5>使用教學</h5></div>
+                <div class="col-md-3 col-sm-3 col-xs-12 animation fadeInLeft">
+                    <div class="service">
+                        <div class="service-heading clearfix">
+                            <div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">1</div>
+                            <h4>步驟一</h4>
+                        </div>
+                        <div class="service-text" style="height: px">
+                            <p>blablablablablablabla....</p>
+                        </div>
+                        <a class="service-learn-more btn btn-xs hidden-xs" href="#">Learn more</a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12 animation fadeInLeft">
+                    <div class="service">
+                        <div class="service-heading clearfix">
+                            <div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">2</div>
+                            <h4>步驟二</h4>
+                        </div>
+                        <div class="service-text" style="height: px">
+                            <p>blablablablablablabla....</p>
+                        </div>
+                        <a class="service-learn-more btn btn-xs hidden-xs" href="#">Learn more</a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12 animation fadeInRight">
+                    <div class="service">
+                        <div class="service-heading clearfix">
+                            <div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">3</div>
+                            <h4>步驟三</h4>
+                        </div>
+                        <div class="service-text" style="height: px">
+                            <p>blablablablablablabla....</p>
+                        </div>
+                        <a class="service-learn-more btn btn-xs hidden-xs" href="#">Learn more</a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12 animation fadeInRight">
+                    <div class="service">
+                        <div class="service-heading clearfix">
+                            <div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">4</div>
+                            <h4>步驟四</h4>
+                        </div>
+                        <div class="service-text" style="height: px">
+                            <p>blablablablablablabla....</p>
+                        </div>
+                        <a class="service-learn-more btn btn-xs hidden-xs" href="#">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTAINER -->
+    <div class="full-width fw-borders" style="background: url(img/pattern/fabric_of_squares_gray.png)">
         <div class="container">
             <div class="row">
                 <div class="title"><h5>Meet the Team</h5></div>
-                      
-                      <div class="row margin-bot">
-                        
-                          
-                        <div class="col-md-4 col-sm-6">
-                            <h2 class="h-light highlight1">"Pusheen出來玩"</h2><br><br>
-                              <p>（看要加什麼團隊簡介XD）<br><br> Fusce vehicula aliquam libero eu aliquet. Proin feugiat, urna sit amet dignissim suscipit.</p><br>
-                              <a href="#" class="btn btn-sm">Learn more</a>
-                          </div>
-                        
+                <div class="row margin-bot">
+                    <div class="col-md-4 col-sm-6 col-md-offset-0 col-sm-offset-0 col-xs-offset-1 col-xs-10">
+                        <h2 class="h-light highlight1">"Pusheen出來玩"</h2><br><br>
+                        <p>（看要加什麼團隊簡介XD）<br><br> Fusce vehicula aliquam libero eu aliquet. Proin feugiat, urna sit amet dignissim suscipit.</p><br>
+                        <a href="#" class="btn btn-sm">Learn more</a>
+                    </div>
 
 
-                          <!-- TEAM PERSON -->
-                        <div class="col-md-4 col-sm-6 animation flipInY">
-                            <div class="team-person">
-                                <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
-                                  <div class="team-person-info">
-                                    <div class="team-person-name">
-                                          <h4>戴宏穎</h4>
-                                          <span class="function">Chief Executive Officer</span>
-                                      </div>
-                                      <div class="team-person-text" style="height: px">
-                                        <p>blablablablablablablabla...... </p>
-                                      </div>
-                                      <div class="team-person-social">
-                                        <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
-                                      </div>
-                                      
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- TEAM PERSON END -->
-                        
-                          <!-- TEAM PERSON -->
-                        <div class="col-md-4 col-sm-6 animation flipInY">
-                            <div class="team-person">
-                                <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
-                                  <div class="team-person-info">
-                                    <div class="team-person-name">
-                                          <h4>楊宗翰</h4>
-                                          <span class="function">Chief Executive Officer</span>
-                                      </div>
-                                      <div class="team-person-text" style="height: px">
-                                        <p>blablablablablablablabla...... </p>
-                                      </div>
-                                      <div class="team-person-social">
-                                        <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
-                                      </div>
-                                      
-                                  </div>
-                              </div>
-                          </div>
-<!-- 
-                        <div class="col-md-3 col-sm-3 animation flipInY">
-                          </div>
- -->
-                          <div class="col-md-4 col-sm-6 animation flipInY">
-                            <div class="team-person">
-                                <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
-                                  <div class="team-person-info">
-                                    <div class="team-person-name">
-                                          <h4>林致民</h4>
-                                          <span class="function">Chief Executive Officer</span>
-                                      </div>
-                                      <div class="team-person-text" style="height: px">
-                                        <p>blablablablablablablabla...... </p>
-                                      </div>
-                                      <div class="team-person-social">
-                                        <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
-                                      </div>
-                                      
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- TEAM PERSON END -->
-                        
-                          <!-- TEAM PERSON -->
-                        <div class="col-md-4 col-sm-6 animation flipInY">
-                            <div class="team-person">
-                                <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
-                                  <div class="team-person-info">
-                                    <div class="team-person-name">
-                                          <h4>許佑瑋</h4>
-                                          <span class="function">Chief Executive Officer</span>
-                                      </div>
-                                      <div class="team-person-text" style="height: px">
-                                        <p>blablablablablablablabla...... </p>
-                                      </div>
-                                      <div class="team-person-social">
-                                        <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
-                                      </div>
-                                      
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- TEAM PERSON END -->
-                          <!-- TEAM PERSON -->
-                        <div class="col-md-4 col-sm-6 animation flipInY">
-                            <div class="team-person">
-                                <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
-                                  <div class="team-person-info">
-                                    <div class="team-person-name">
-                                          <h4>林詩雅</h4>
-                                          <span class="function">Chief Executive Officer</span>
-                                      </div>
-                                      <div class="team-person-text" style="height: px">
-                                        <p>blablablablablablablabla...... </p>
-                                      </div>
-                                      <div class="team-person-social">
-                                        <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
-                                      </div>
-                                      
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- TEAM PERSON END -->
-                      </div>
-                <!-- <div class="col-md-12 col-sm-12 col-sm-12 animation fadeInLeft" >
-                    <div class="title"><h5>Latest works</h5></div>
-                  </div> -->
-              </div>
-              
-              
-              
-              
-          </div> <!-- CONTAINER END -->
-        </div> 
-        
-        <div class="container">
-            
-            <script>
+                    <!-- TEAM PERSON -->
+                    <div class="col-md-4 col-sm-6 hidden-xs animation flipInY">
+                        <div class="team-person">
+                            <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
+                            <div class="team-person-info">
+                                <div class="team-person-name">
+                                    <h4>戴宏穎</h4>
+                                    <span class="function">Chief Executive Officer</span>
+                                </div>
+                                <div class="team-person-text" style="height: px">
+                                    <p>blablablablablablablabla...... </p>
+                                </div>
+                                <div class="team-person-social">
+                                    <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TEAM PERSON END -->
+
+                    <!-- TEAM PERSON -->
+                    <div class="col-md-4 col-sm-6 hidden-xs animation flipInY">
+                        <div class="team-person">
+                            <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
+                            <div class="team-person-info">
+                                <div class="team-person-name">
+                                    <h4>楊宗翰</h4>
+                                    <span class="function">Chief Executive Officer</span>
+                                </div>
+                                <div class="team-person-text" style="height: px">
+                                    <p>blablablablablablablabla...... </p>
+                                </div>
+                                <div class="team-person-social">
+                                    <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 hidden-xs animation flipInY">
+                        <div class="team-person">
+                            <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
+                            <div class="team-person-info">
+                                <div class="team-person-name">
+                                    <h4>林致民</h4>
+                                    <span class="function">Chief Executive Officer</span>
+                                </div>
+                                <div class="team-person-text" style="height: px">
+                                    <p>blablablablablablablabla...... </p>
+                                </div>
+                                <div class="team-person-social">
+                                    <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TEAM PERSON END -->
+
+                    <!-- TEAM PERSON -->
+                    <div class="col-md-4 col-sm-6 hidden-xs animation flipInY">
+                        <div class="team-person">
+                            <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
+                            <div class="team-person-info">
+                                <div class="team-person-name">
+                                    <h4>許佑瑋</h4>
+                                    <span class="function">Chief Executive Officer</span>
+                                </div>
+                                <div class="team-person-text" style="height: px">
+                                    <p>blablablablablablablabla...... </p>
+                                </div>
+                                <div class="team-person-social">
+                                    <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TEAM PERSON END -->
+                    <!-- TEAM PERSON -->
+                    <div class="col-md-4 col-sm-6 hidden-xs animation flipInY">
+                        <div class="team-person">
+                            <div class="team-person-photo"><img src="img/pusheen1.jpg" alt=""></div>
+                            <div class="team-person-info">
+                                <div class="team-person-name">
+                                    <h4>林詩雅</h4>
+                                    <span class="function">Chief Executive Officer</span>
+                                </div>
+                                <div class="team-person-text" style="height: px">
+                                    <p>blablablablablablablabla...... </p>
+                                </div>
+                                <div class="team-person-social">
+                                    <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TEAM PERSON END -->
+                </div>
+            </div>
+        </div> <!-- CONTAINER END -->
+    </div> 
+
+    <div class="container">
+        <script>
             $(window).load(function() {
                 $("#clients").flexisel({
                     enableResponsiveBreakpoints: true,
@@ -354,9 +315,6 @@ var bgColor = $('.label-danger').css('background-color') ;
                     }
                 }); 
             });                       
-            </script>
-                     
-            
-         </div>  
-          
-    </div> <!-- CONTENT END -->
+        </script>
+    </div>  
+</div> <!-- CONTENT END -->
