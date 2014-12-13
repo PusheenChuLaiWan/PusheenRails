@@ -39,6 +39,12 @@ class PostsController < ApplicationController
 	def faq
 		@post = Post.new 
 	end
+
+	def analysis
+		if !current_user
+			redirect_to root_path
+		end
+	end
 private
 
 	def post_params
