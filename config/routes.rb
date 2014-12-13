@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'posts/faq'
   get 'posts/analysis'
+  get 'posts/pre'
   
   resources :posts, except:[ :show ] 
   

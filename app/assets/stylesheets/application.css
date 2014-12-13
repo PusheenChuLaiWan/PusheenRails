@@ -23,5 +23,6 @@
  *= require css/shortcodes
  *= require css/social_foundicons
  *= require font-awesome.min
+ *= require bootstrap-datetimepicker
  */
 @import 'bootstrap' ; 
