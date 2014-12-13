@@ -701,11 +701,34 @@ header .header-line {
 	border-radius: 			3px;
 }
 
-.nav-toogle {
-	width: 40px;
-	float: right;
-	margin-top: 2px;
-	font-size: 17px;	
+
+@media screen and (max-width: 20000px) {
+    .nav-toogle {
+        width: 40px;
+        float: right;
+        margin-top: 8px;
+        font-size: 17px;	
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .nav-toogle {
+        width: 48px;
+        height: 48px;
+        float: right;
+        margin-top: 8px;
+        font-size: 17px;	
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav-toogle {
+        width: 40px;
+        height: 40px;
+        float: right;
+        margin-top: 8px;
+        font-size: 17px;	
+    }
 }
 
 .collapse, .navbar-collapse {
@@ -1274,6 +1297,18 @@ html[xmlns] .slides {display: block;}
 @media screen and (max-width: 480px) {
   .flex-direction-nav .flex-prev { z-index: -10; opacity: 1; left: 0px;}
   .flex-direction-nav .flex-next { z-index: -10; opacity: 1; right: 0px;}
+}
+
+@media screen and (max-width: 20000px) {
+    .ktb-logo { height: 80px; width: 80px; }
+}
+
+@media screen and (max-width: 860px) {
+    .ktb-logo { height: 60px; width: 60px; }
+}
+
+@media screen and (max-width: 480px) {
+    .ktb-logo { height: 55px; width: 55px; }
 }
 /*--------------------------------------------------------------------------*/
 /* BLOG
