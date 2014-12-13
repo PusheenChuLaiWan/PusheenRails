@@ -88,15 +88,51 @@
             
               <div class="col-md-8 col-sm-8">
                   <div class="title"><h5>聯絡我們</h5></div>
-              
-                    <form id="contact-form" class="form-horizontal" method="post" action="php/send.php">
-                 
-                        <div id="message-input">
-                        <div class="input-group">
-                        <input type="text" name="name" id="name" value="" placeholder="Name (required)" size="22" tabindex="1" aria-required="true" class="requiredField name input-name"><span class="input-group-addon"><i class="icon-user"></i></span>
+                    <%= simple_form_for( @post )  do |f| %>
+                      <div id="message-input">
+                          <div class="input-group">
+                            <%= f.input :name ,input_html:{ class: "requiredField name input-name"}, maxlength: 22 , required: true , label: false, tabindex: 1, placeholder: "Name ( required )" %>
+
+                            <span class="input-group-addon">
+                              <i class="icon-user"></i>
+                            </span>
+                          </div>
+                          <div class="input-group">
+                            <%= f.input :email , input_html:{ class: "requiredField name input-name", size: 22, tabindex: 1 }, required: true , label: false , placeholder: "Email (required)"%>
+
+                            <span class="input-group-addon">
+                              <i class="icon-envelope-alt"></i>
+                            </span>
+                          </div>
+                      </div>
+                      <div id="message-textarea">
+                        <%= f.text_area :message, cols: 39, rows: 6, tabindex: 4, class: "requiredField", placeholder: "Message..... (required)" %>
+                           
+                      </div>
+                      <div id="message-submit"><p></p>
+                            <div>
+                                
+                                <%= f.submit "送訊息給我們喔～" , tabindex: 5, class: "btn-submit btn"%>
+                            </div>
                         </div>
-                        <div class="input-group">
-                        <input type="text" name="email" id="email" value="" placeholder="Email (required)" size="22" tabindex="2" aria-required="true" class="requiredField email input-email"><span class="input-group-addon"><i class="icon-envelope-alt"></i></span></div>
+                    <% end %>
+                  <!--
+                    <form id="contact-form" class="form-horizontal" action="/posts" method="post" >
+                  
+                        <div id="message-input">
+
+
+                          <div class="input-group">
+
+                            <input type="text" name="name" id="name" value="" placeholder="Name (required)" size="22" tabindex="1" aria-required="true" class="requiredField name input-name">
+                            <span class="input-group-addon">
+                              <i class="icon-user"></i>
+                            </span>
+
+                          </div>
+                          <div class="input-group">
+                            <input type="text" name="email" id="email" value="" placeholder="Email (required)" size="22" tabindex="2" aria-required="true" class="requiredField email input-email"><span class="input-group-addon"><i class="icon-envelope-alt"></i></span>
+                          </div>
                         </div>
                         <div id="message-textarea">
                             <textarea name="message" id="message" cols="39" rows="6" tabindex="4" class="requiredField" placeholder="Message... (required)"></textarea>
@@ -106,7 +142,11 @@
                                 <input name="Send" type="submit" id="Send" tabindex="5" value="Send message" class="btn-submit btn">
                             </div>
                         </div>
+
+
                     </form>
+
+                            -->
                 </div>
                 
                 <div class="col-md-4 col-sm-4">

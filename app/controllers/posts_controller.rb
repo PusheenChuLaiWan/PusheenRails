@@ -21,6 +21,27 @@ class PostsController < ApplicationController
 	    end
 	end
 
+	def create
+		@post = Post.new( post_params )
+		@post.save 
+		redirect_to posts_faq_path 
+	end
+
+	def show
+	end
+
+	def update 
+	end
+
+	def new
+	end
+
 	def faq
+		@post = Post.new 
+	end
+private
+
+	def post_params
+		params.require( :post ).permit( :name , :email, :message ) 
 	end
 end
