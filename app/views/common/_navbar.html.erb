@@ -67,10 +67,26 @@
   
                         <nav id="main-nav" class="collapse navbar-collapse navbar-ex1-collapse">
                             <ul>
-                                <li class="current_page_item">
-                                  <%= link_to "Home" , root_path %>
-                                </li>
-                                <li><%= link_to "FAQ / 聯絡我們" , posts_faq_path %> </a></li>
+                                <% if request.env['PATH_INFO'] == root_path %>
+                                  <li class="current_page_item">
+                                    <%= link_to "Home" , root_path %>
+                                  </li>
+                                <% else %>
+                                  <li>
+                                    <%= link_to "Home" , root_path %>
+                                  </li>
+                                <% end %>
+
+                                <% if request.env['PATH_INFO'] == posts_faq_path %>
+                                  <li class="current_page_item">
+                                    <%= link_to "FAQ / 聯絡我們" , posts_faq_path %>
+                                  </li>
+                                <% else %>
+                                  <li>
+                                    <%= link_to "FAQ / 聯絡我們" , posts_faq_path %>
+                                  </li>
+                                <% end %>
+                                
                                 
                                 <li><a href="portfolio-4col.html">預約</a>
                                   <ul>
