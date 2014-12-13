@@ -82,7 +82,7 @@
                                   </li>
                                 <% end %>
                                 
-                                <% if !user_signed_in? %>
+                                <% if user_signed_in? %>
                                   <li><a href="portfolio-4col.html">預約</a>
                                     <ul>
                                       <li><a href="portfolio-4col.html">座位預約系統</a></li>
@@ -123,7 +123,7 @@
                     
                     <div class="header-bottom-elements">
                         <div class="element-wrap">
-                        	<div class="btn"><%= link_to "加入我們享受高級Ｋ書服務", new_user_registration_path, :class => 'navbar-link'  %></div>
+                        	<div><%= link_to "加入我們享受高級Ｋ書服務", new_user_registration_path, :class => 'navbar-link btn' %></div>
                         </div>
                     </div>
             	

@@ -1,26 +1,34 @@
-<h2>Log in</h2>
+<div class="full-width fw-borders" style="background: url(/img/pattern/fabric_of_squares_gray.png)">
+  <div class="container">
+      <div class="row margin-bot">
+        <div class="col-md-8 col-sm-8 container">
+              <h1 class="h-light">Sign in</h1>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                
+                <div class="field">
+                  <%= f.label :email , class: "h-light"%><br />
+                  <%= f.email_field :email, autofocus: true , class: "requiredField name input-name"%>
+                </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+                <div class="field">
+                  <%= f.label :password , class: "h-light" %><br />
+                  <%= f.password_field :password, autocomplete: "off" , class: "requiredField name input-name" %>
+                </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
+                <% if devise_mapping.rememberable? -%>
+                  <div class="checkbox">            
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me , class: "h-light" %>
+                  </div>
+                <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+                <div class="actions">
+                  <%= f.submit "Log in" , class: "btn "%>
+                </div>
+              <% end %>
+          </div>
+      </div>             
+    </div> <!-- CONTAINER END -->
+</div> <!-- CONTENT END --> 
 
-<%= render "devise/shared/links" %>
