@@ -1,36 +1,3 @@
-<!--
-<script>
-(function worker() { 
-	$.ajax({
-	    type: "GET",
-	    url: "/posts/get_data",
-	    dataType: "json",
-	    success: function(data)
-	    {
-	      $('.result').fadeOut( 200, function(){
-	      		$('.result').html( data ) ; 
-			    $('.result').load('/posts/get_data .table', function(){
-			      	$('.result').fadeIn( 200 ) ;
-			    });
-			    setTimeout(worker, 3000);
-	      }) ; 
-	      
-	    }
-	}); 
-})();
-</script>
--->
-
-<style>
-	.label{
-		font-size: 40px ;
-	}
-
-	.title{
-		font-size: 40px ;
-	}
-</style>
-
 <script>
 (function worker() { 
 	$.ajax({
@@ -48,7 +15,7 @@
 	    	var s = "";
 	    	for(var ind in data){
 	    		d = data[ind];
-	    		s += '<h1 class="title"><label class="label label-danger">' + d.datastream_name + " : " + d.current_value + '</label></h1><br><br>' ; 
+	    		s += '<h1 class="titl"><label class="label label-danger">' + d.datastream_name + " : " + d.current_value + '</label></h1><br><br>' ; 
 	    	}
 	    	
 	      	$('.result').html( s ) ; 
@@ -58,4 +25,399 @@
 })();
 </script>
 <br><br><br>
-<div class="result"></div>
+
+<!-- FLEX SLIDER -->
+	<div class="flexslider">
+          <ul class="slides" style="background: #F5F5F5 ; height: 500px;">
+            <li style="background: #EEE; height: 400px;">
+            
+              <div class="container">
+              	<div class="row margin-bot">
+                	<div class="col-md-4 col-sm-4">
+                		<div class="result"></div>
+                    	<h2 class="h-light highlight1">Welcome to Gravida!</h2><br><br>
+                        <p>Nam lobortis vel tortor vitae semper. Nunc bibendum, velit pulvinar gravida consequat, metus nunc eleifend diam, vitae fringilla quam.<br><br> Fusce vehicula aliquam libero eu aliquet. Proin feugiat, urna sit amet dignissim suscipit.</p><br>
+                        <a href="#" class="btn btn-sm">Learn more</a>
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+                    	<img src="img/flex-s1.png" alt="home">
+                    </div>
+              	</div>
+              </div>
+              
+            </li>
+            <li style="background: url(img/pattern/vintage_speckles.png);">
+            
+              <div class="container">
+              	<div class="row margin-bot">
+                	<div class="col-md-4 col-sm-4">
+                    	<h2 class="h-light highlight1">Flexslider 2.0</h2><br>
+                        <h5 class="h-light highlight3">Unlimited possibilities</h5><br><br>
+                        <p>Nam lobortis vel tortor vitae semper. Nunc bibendum, velit pulvinar gravida consequat, metus nunc eleifend.</p><br><br>
+                        <div class="text-box">
+                        	<div class="content-padding">Sign up to newsletter:
+                                <form role="form">
+                                  <fieldset>
+                                    <div class="input-group" style="background: #F5F5F5; margin-top: 5px;">
+                                        <input name="s" id="s" type="text" value="" placeholder="Email address ...">
+                                        <span class="input-group-addon"><i class="icon-envelope"></i></span>
+                                    </div>
+                                  </fieldset>
+                        		<a href="#" class="btn btn-sm">Sign up</a>
+                                </form>
+                    		</div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+                    	<img src="img/flex_s2.png" alt="home">
+                    </div>
+              	</div>
+              </div>
+              
+            </li>
+            <li>
+            
+              <!-- <div class="container">
+              	<div class="row margin-bot">
+                	<div class="col-md-4 col-sm-4">
+                    	<h2 class="h-light highlight1">Video Slider</h2><br><br>
+                        <p> Fusce vehicula aliquam libero eu aliquet. Proin feugiat, urna sit amet dignissim suscipit.<br><br> Nam lobortis vel tortor vitae semper. Nunc bibendum, velit pulvinar gravida consequat, metus nunc eleifend diam, vitae fringilla quam.</p><br>
+                        <a href="#" class="btn btn-sm">Learn more</a>
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+                    	<div class="fit-vid"><iframe src="http://player.vimeo.com/video/42381325?title=0&amp;byline=0&amp;portrait=0&amp;color=ff6969" width="620" height="351" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+                        <img src="img/flex-video-shadow-01.png" alt="shadow">
+                    </div>
+              	</div>
+              </div> -->
+              
+            </li>
+          </ul>
+    </div>
+
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function (){ 
+		  $('.flexslider').flexslider({
+    		prevText: "",
+    		nextText: "", 
+			pauseOnHover: true,
+			video: true,      
+		  });
+		});
+    </script>
+    
+    <!-- CONTENT -->
+    <div id="content">
+    
+    	<div class="full-width fw-border-bottom" style="background: url(img/pattern/geometry.png);">
+        	<div class="container">
+            	<div class="row margin-bot">
+                    
+                    	<div class="col-md-3 col-sm-3 animation fadeInLeft">
+                        	<div class="service">
+                            	<div class="service-heading clearfix">
+                                	<div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">1</div>
+                                    <h4>Duis quis interdum metus.</h4>
+                                </div>
+                                <div class="service-text" style="height: px">
+                                	<p>Donec sed elit ut velit porta gravida id non eros ut nec. Aliquam nec mi nisl. Aliquam tellus dolor.</p>
+                                </div>
+                                <a class="service-learn-more btn btn-xs" href="#">Learn more</a>
+                            </div>
+                        </div>
+                    
+                    	<div class="col-md-3 col-sm-3 animation fadeInLeft">
+                        	<div class="service">
+                            	<div class="service-heading clearfix">
+                                	<div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">2</div>
+                                    <h4>Vestibulum blandit tempus.</h4>
+                                </div>
+                                <div class="service-text" style="height: px">
+                                	<p>Nulla enim purus, congue a vehicula ac, sollicitudin ut sem. Pellentesque aliquam.</p>
+                                </div>
+                                <a class="service-learn-more btn btn-xs" href="#">Learn more</a>
+                            </div>
+                        </div>
+                    
+                    	<div class="col-md-3 col-sm-3 animation fadeInRight">
+                        	<div class="service">
+                            	<div class="service-heading clearfix">
+                                	<div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">3</div>
+                                    <h4>Aliquam males dignissim.</h4>
+                                </div>
+                                <div class="service-text" style="height: 92px">
+                                	<p>Nunc aliquet tincidunt metus, sit amet mattis lectus sodales ac. </p>
+                                </div>
+                                <a class="service-learn-more btn btn-xs" href="#">Learn more</a>
+                            </div>
+                        </div>
+                    
+                    	<div class="col-md-3 col-sm-3 animation fadeInRight">
+                        	<div class="service">
+                            	<div class="service-heading clearfix">
+                                	<div class="service-icon animation rotateInDownLeft" style="background: #e7e7e7;">4</div>
+                                    <h4>Fusce suscipit placerat.</h4>
+                                </div>
+                                <div class="service-text" style="height: px">
+                                	<p>Praesent dui est, cursus vel tellus dictum, sagittis tincidunt ipsum. Mauris accumsan eu.</p>
+                                </div>
+                                <a class="service-learn-more btn btn-xs" href="#">Learn more</a>
+                            </div>
+                        </div>
+                	
+                </div>
+            </div>
+        </div>
+        
+    	<!-- CONTAINER -->
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-md-12 col-sm-12 col-sm-12 animation fadeInLeft" >
+                	<div class="title"><h5>Latest works</h5></div>
+                </div>
+            </div>
+            
+            <div class="row margin-bot">
+            
+            	<div class="col-md-8 col-sm-8 animation fadeInLeft">
+                	<div class="title"><h5>Our features</h5></div>
+                    
+                    <!-- TABS -->
+                    <div class="tab">
+                    
+                        <ul class="nav nav-tabs" id="services-tab">
+                          <li class="active"><a href="#tab-1" data-toggle="tab">Cras vitae lorem</a></li>
+                          <li><a href="#tab-2" data-toggle="tab">Nam nibh nunc</a></li>
+                          <li><a href="#tab-3" data-toggle="tab">Praesent ac</a></li>
+                        </ul>
+                        
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="tab-1">
+                            <p>Nunc aliquet tincidunt metus, sit amet mattis lectus sodales ac. Suspendisse rhoncus dictum eros, ut egestas eros luctus eget. Nam nibh sem, mattis et feugiat ut, porttitor nec risus.<br/><br/> Vestibulum porttitor justo libero, ut commodo lacus tristique ac. Ut non erat pellentesque, cursus metus at, dictum odio. Phasellus vehicula accumsan ante ac venenatis. In id eros urna.</p>
+                          </div>
+                          <div class="tab-pane" id="tab-2">
+                            <p>Praesent facilisis tincidunt massa. In convallis risus id sem sagittis pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+                          </div>
+                          <div class="tab-pane" id="tab-3">
+                            <p>Nam id volutpat purus, in porta sem. Nulla quam tellus, egestas vitae condimentum at, aliquam sit amet lacus. Aliquam ac faucibus lorem, quis laoreet dolor. Nam vehicula odio ante, sit amet bibendum ipsum mattis non. In feugiat neque ac blandit pellentesque. </p>                              
+                          </div>
+                        </div>
+
+                        
+                    </div>
+                    <!-- TABS END -->
+                	
+                </div>
+                
+                <!-- TESTIMONIALS -->
+                <div class="col-md-4 col-sm-4 animation fadeInRight">
+					<div class="title"><h5>Testimonials</h5></div>
+                    
+                    <div id="testimonial-carousel" class="testimonial carousel slide">
+                        <div class="carousel-inner">
+                        	<div class="active item">
+                            	<div class="testimonial-item">
+                                    <div class="icon"><i class="icon-quote-right"></i></div>
+                                    <blockquote>
+                                        <p>Donec convallis, metus nec tempus aliquet, nunc metus adipiscing leo, a lobortis nisi dui ut odio. Nullam ultrices, eros accumsan vulputate faucibus, turpis tortor dictum dolor.</p>
+                                    </blockquote>
+                                    <div class="icon-tr"></div>
+                                    <div class="testimonial-review">
+                                    	<small>Adrian Lampart, Leopard</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        	<div class="item">
+                            	<div class="testimonial-item">
+                                    <div class="icon"><i class="icon-quote-right"></i></div>
+                                    <blockquote>
+                                        <p>Nunc aliquet tincidunt metus, sit amet mattis lectus sodales ac. Suspendisse rhoncus dictum eros, ut egestas eros luctus eget. Nam nibh sem, mattis et feugiat ut, porttitor nec risus.</p>
+                                    </blockquote>
+                                    <div class="icon-tr"></div>
+                                    <div class="testimonial-review">
+                                    	<small>John Doe, Google</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="testimonial-buttons"><a href="#testimonial-carousel" data-slide="prev"><i class="icon-chevron-left"></i></a>&#32;
+                        <a href="#testimonial-carousel" data-slide="next"><i class="icon-chevron-right"></i></a></div>
+                    </div>
+                </div><!-- TESTIMONIALS END -->
+            
+            </div>
+            
+        </div> <!-- CONTAINER END -->
+        
+        <div class="full-width fw-borders" style="background: url(img/pattern/fabric_of_squares_gray.png)">
+        	<div class="container">
+                <!-- LATEST POSTS / TESTIMONIALS -->
+                <div class="row margin-bot">
+                
+                    <!-- LATEST POSTS -->
+                    <div class="col-md-3 col-sm-3 animation fadeInLeft">
+                        <div class="title"><h5>Latest posts</h5></div>
+                        <p class="text-muted">Sed ullamcorper elementum risus vitae pellentesque. Morbi vehicula dolor ligula, et sodales est scelerisque egestas. </p><br>
+                        <a href="blog.html" class="btn">Read the blog</a>
+                        
+                    </div>
+                    
+                    <div class="col-md-3 col-sm-3">         
+                        <!-- LATEST POST ITEM -->
+                            <div class="latest-post-item animation flipInY">
+                                <a href="blog-post.html"><img src="img/blog-img-1-latest.png" alt=""></a>
+                                <div class="latest-post-content">
+                                    <span class="latest-post-info"><i class="icon-bookmark-empty"></i>&#32;Mar 27 by Adrian &middot; <a href="blog-post.html#comments"><i class="icon-comment-alt"></i>&#32;15</a></span>
+                                    <a href="blog-post.html"><h5>In porta enim non dolor posuere ut rhoncus leo tincidunt. Cras egeta tincidunt volutpat leo.</h5></a>
+                                    <p>Donec convallis, metus nec tempus aliquet [...]</p>
+                                </div>
+                            </div>
+                    </div>
+                    
+                    <div class="col-md-3 col-sm-3">         
+                        <!-- LATEST POST ITEM -->
+                            <div class="latest-post-item animation flipInY">
+                                <a href="blog-post.html"><img src="img/blog-img-2-latest.png" alt=""></a>
+                                <div class="latest-post-content">
+                                    <span class="latest-post-info"><i class="icon-bookmark-empty"></i>&#32;Mar 27 by Adrian &middot; <a href="blog-post.html#comments"><i class="icon-comment-alt"></i>&#32;15</a></span>
+                                    <a href="blog-post.html"><h5>Etiam feugiat justo id mi mattis pretium. Sed vestibulum mollis mollis.</h5></a>
+                                    <p>Praesent non dui facilisis justo pharetra venenatis [...]</p>
+                                </div>
+                            </div>
+                    </div>
+                    
+                    <div class="col-md-3 col-sm-3">         
+                        <!-- LATEST POST ITEM -->
+                            <div class="latest-post-item animation flipInY">
+                                <a href="blog-post.html"><img src="img/blog-img-3-latest.png" alt=""></a>
+                                <div class="latest-post-content">
+                                    <span class="latest-post-info"><i class="icon-bookmark-empty"></i>&#32;Mar 27 by Adrian &middot; <a href="blog-post.html#comments"><i class="icon-comment-alt"></i>&#32;15</a></span>
+                                    <a href="blog-post.html"><h5>Pellentesque accumsan neque.</h5></a>
+                                    <p>Nulla enim purus, congue a vehicula ac [...]</p>
+                                </div>
+                            </div>
+                    </div> 
+                    
+                    
+                </div><!-- LATEST POSTS / TESTIMONIALS END -->
+            </div>
+        </div>
+        
+        <div class="container">
+            
+			<script>
+			$(window).load(function() {
+				$("#clients").flexisel({
+					enableResponsiveBreakpoints: true,
+					visibleItems: 5,
+					animationSpeed: 800,
+					autoPlay: true,
+					autoPlaySpeed: 5000,
+					pauseOnHover: true,
+					responsiveBreakpoints: { 
+						portrait: { 
+							changePoint:480,
+							visibleItems: 1
+						}, 
+						landscape: { 
+							changePoint:640,
+							visibleItems: 2
+						},
+						tablet: { 
+							changePoint:991,
+							visibleItems: 4
+						}
+					}
+				}); 
+			});                       
+            </script>
+            
+            <div class="row margin-bot">
+            	<div class="col-md-12 col-sm-12 animation flipInX">
+					<div class="title"><h5>We worked for</h5></div>
+                    
+                        <!-- <ul id="clients"> 
+                            <li><img src="img/logo.png" alt=""></li>
+                            <li><img src="img/logo@2x.png" alt=""></li>
+                            <li class="als-item"><img src="img/client_gravida.png" alt=""></li>    
+                            <li><img src="img/logo@2x.png" alt=""></li>
+                            <li class="als-item"><img src="img/client_gravida.png" alt=""></li>     
+                            <li><img src="img/logo@2x.png" alt=""></li>
+                            <li class="als-item"><img src="img/client_gravida.png" alt=""></li> 
+                            <li><img src="img/logo@2x.png" alt=""></li>   
+                        </ul> -->   
+                    
+                </div>
+            </div>            
+            
+         </div>  
+          
+    </div> <!-- CONTENT END -->    <footer class="footer-widgets">
+		<div class="container footer-wrap">
+        	<div class="row">
+            
+            	<div class="col-md-3 col-sm-3">
+                	<div class="widget-title"><h5>About Gravida</h5></div>
+                    <p>Hi, 我們是Pusheen出來玩！<br><br>Aleje Jerozolimskie 11<br/>Warsaw, Poland<br/>warsaw@gravida.com<br/>+048 123 456 789</p>
+                </div>
+            
+            	<div class="col-md-3 col-sm-3">
+                	<div class="widget-title"><h5>Twitter widget</h5></div>
+                    
+                    <div class="widget-twitter"></div>
+                </div>
+            
+            	<div class="col-md-3 col-sm-3">
+                	<div class="widget-title"><h5>Social widget</h5></div>
+                    <div class="social-icon">
+                      <a href="#" class="foundicon-facebook"></a>
+                      <a href="#" class="foundicon-twitter"></a>
+                      <a href="#" class="foundicon-pinterest"></a>
+                      <a href="#" class="foundicon-github"></a>
+                      <a href="#" class="foundicon-instagram"></a>
+
+                      <!-- <a href="#" class="foundicon-linkedin"></a>
+                      <a href="#" class="foundicon-dribbble"></a>
+                      <a href="#" class="foundicon-rss"></a>
+                      <a href="#" class="foundicon-behance"></a>
+                      <a href="#" class="foundicon-google-plus"></a>
+                      <a href="#" class="foundicon-youtube"></a>
+                      <a href="#" class="foundicon-vimeo"></a>
+                      <a href="#" class="foundicon-flickr"></a>
+                      <a href="#" class="foundicon-skype"></a> -->
+                      
+                      <!-- <a href="#" class="foundicon-tumblr"></a> -->
+                  </div>
+                </div>
+            
+            	<!-- <div class="col-md-3 col-sm-3">
+                	<div class="widget-title"><h5>Flickr widget</h5></div>
+                    <div class="widget-flickr"><script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;size=s&amp;layout=h&amp;source=user&amp;user=52617155@N08"></script></div>
+                </div> -->
+                
+            </div>
+        </div>
+    </footer>
+    
+    <footer class="footer-bottom">
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-md-12 col-sm-12">
+                	<span class="copyrights">&copy; Copyright 2013 by <a href="#">Gravida</a>. All rights reserved &middot; Powered by <a href="http://wordpress.org">WordPress</a>.</span>
+                    
+                    <nav id="footer-bottom-nav" class="hidden-xs">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About us</a></li>
+                            <li><a href="portfolio-3col.html">Portfolio</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </footer>    
