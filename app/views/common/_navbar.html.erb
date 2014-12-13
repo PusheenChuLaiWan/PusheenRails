@@ -46,6 +46,16 @@
                 </li>
             <% end %>
 
+            <% if request.env['PATH_INFO'] == posts_about_path %>
+                <li class="current_page_item">
+                <%= link_to "About US" , posts_about_path %>
+                </li>
+            <% else %>
+                <li>
+                <%= link_to "About US" , posts_about_path %>
+                </li>
+            <% end %>
+
             <% if request.env['PATH_INFO'] == posts_faq_path %>
                 <li class="current_page_item">
                 <%= link_to "FAQ / 聯絡我們" , posts_faq_path %>
