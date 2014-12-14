@@ -1,9 +1,9 @@
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" charset="utf-8">
-/* CONTACT MAP */
+    /* CONTACT MAP */
 google.load("maps", "3", {
-    callback: initialize,
-    other_params: "sensor=false&libraries=places,drawing"
+callback: initialize,
+other_params: "sensor=false&libraries=places,drawing"
 });
 function initialize() {
     var map;
@@ -12,27 +12,27 @@ function initialize() {
     var style = [{featureType:"administrative",stylers:[{visibility:"off"}]},{featureType:"poi",stylers:[{visibility:"simplified"}]},{featureType:"road",stylers:[{visibility:"simplified"}]},{featureType:"water",stylers:[{visibility:"simplified"}]},{featureType:"transit",stylers:[{visibility:"simplified"}]},{featureType:"landscape",stylers:[{visibility:"simplified"}]},{featureType:"road.highway",stylers:[{visibility:"off"}]},
         {featureType:"road.local",stylers:[{visibility:"on"}]},{featureType:"road.highway",elementType:"geometry",stylers:[{visibility:"on"}]},{featureType:"road.arterial",stylers:[{visibility:"off"}]},{featureType:"water",stylers:[{color:"#5f94ff"},{lightness:26},{gamma:5.86}]},{},{featureType:"road.highway",stylers:[{weight:0.6},{saturation:-85},{lightness:61}]},{featureType:"road"},{},{featureType:"landscape",stylers:[{hue:"#0066ff"},{saturation:74},{lightness:100}]}]
 
-        var options = {
-            zoom: 14,
-            center: centerPosition,
-            scrollwheel: false,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        map = new google.maps.Map($('#contact-map')[0], options);
-        map.setOptions({
-            styles: style
-        });
+    var options = {
+zoom: 14,
+      center: centerPosition,
+      scrollwheel: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map($('#contact-map')[0], options);
+    map.setOptions({
+styles: style
+});
 
-        var image = {
-            url: 'http://sdrme.cal24.pl/marker.png',
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(16, 50)
-        };
-        var marker = new google.maps.Marker({
-            position: centerPosition,
-            map: map,
-            icon: image,
-        });
+var image = {
+url: 'http://sdrme.cal24.pl/marker.png',
+     origin: new google.maps.Point(0, 0),
+     anchor: new google.maps.Point(16, 50)
+};
+var marker = new google.maps.Marker({
+position: centerPosition,
+map: map,
+icon: image,
+});
 }
 
 google.maps.event.addDomListener(window, "load", initialize);
@@ -47,31 +47,24 @@ google.maps.event.addDomListener(window, "load", initialize);
             <div class="full-width fw-borders" style="background: url(/img/pattern/fabric_of_squares_gray.png)">
                 <div class="container">
                     <div class="row">
-                        <div class="title"><h5></h5></div>
-
                         <div class="row margin-bot">
-
-
-                            <div class="col-md-4 col-sm-6">
-                                <h2 class="h-light highlight1">Pusheen出來玩 團隊</h2><br><br>
-                                <p>（看要加什麼團隊簡介XD）<br><br> Fusce vehicula aliquam libero eu aliquet. Proin feugiat, urna sit amet dignissim suscipit.</p><br>
-                                <a href="#" class="btn btn-sm">Learn more</a>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <h2 class="h-light highlight1">We Are Pusheen出來玩</h2><br><br>
+                                <p><b>Pusheen Say Meow~~</b><br><br>本團隊是因為 Pusheen 想來打黑客松所成立的團體。</p><br>
+                                <a class="btn btn-sm">Learn more</a>
                             </div>
 
                             <!-- TEAM PERSON -->
-                            <div class="col-md-4 col-sm-6 animation flipInY">
+                            <div class="col-md-4 col-sm-6 col-xs-12 animation flipInY">
                                 <div class="team-person">
-                                    <div class="team-person-photo"><img src="/img/pusheen1.jpg" alt=""></div>
+                                    <div class="team-person-photo"><img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpf1/v/t34.0-12/10863583_923135364370896_1815552957_n.jpg?oh=4f23fc87f63d8576591250ba3724b32e&oe=548F0322&__gda__=1418672114_82f17f552e5e71600ed22299e5fb41c4" alt=""></div>
                                     <div class="team-person-info">
                                         <div class="team-person-name">
                                             <h4>戴宏穎</h4>
-                                            <span class="function">Chief Executive Officer</span>
-                                        </div>
-                                        <div class="team-person-text" style="height: px">
-                                            <p>blablablablablablablabla...... </p>
+                                            <span class="function">Co-Founder</span>
                                         </div>
                                         <div class="team-person-social">
-                                            <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                            <a href="https://www.facebook.com/hungyingdai">Facebook</a>
                                         </div>
 
                                     </div>
@@ -80,37 +73,31 @@ google.maps.event.addDomListener(window, "load", initialize);
                             <!-- TEAM PERSON END -->
 
                             <!-- TEAM PERSON -->
-                            <div class="col-md-4 col-sm-6 animation flipInY">
+                            <div class="col-md-4 col-sm-6 col-xs-12 animation flipInY">
                                 <div class="team-person">
-                                    <div class="team-person-photo"><img src="/img/pusheen1.jpg" alt=""></div>
+                                    <div class="team-person-photo"><img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpa1/v/t34.0-12/10850530_923135357704230_1037997951_n.jpg?oh=89028a951b822e12601c3ae36e14e6f8&oe=548EE7A6&__gda__=1418658246_b474f5a76a1d4a6edd770b02d9e24db7" alt=""></div>
                                     <div class="team-person-info">
                                         <div class="team-person-name">
                                             <h4>楊宗翰</h4>
-                                            <span class="function">Chief Executive Officer</span>
-                                        </div>
-                                        <div class="team-person-text" style="height: px">
-                                            <p>blablablablablablablabla...... </p>
+                                            <span class="function">Co-Founder</span>
                                         </div>
                                         <div class="team-person-social">
-                                            <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                            <a href="https://www.facebook.com/henryyang42">Facebook</a>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-6 animation flipInY">
+                            <div class="col-md-4 col-sm-6 col-xs-12 animation flipInY">
                                 <div class="team-person">
-                                    <div class="team-person-photo"><img src="/img/pusheen1.jpg" alt=""></div>
+                                    <div class="team-person-photo"><img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpa1/v/t34.0-12/10850475_923136184370814_1554108113_n.jpg?oh=98e73e2452bc79c099bd2bad48ffa366&oe=549017D6&__gda__=1418728822_d4ee0edfcd81af0242b777f058620d29" alt=""></div>
                                     <div class="team-person-info">
                                         <div class="team-person-name">
                                             <h4>林致民</h4>
-                                            <span class="function">Chief Executive Officer</span>
-                                        </div>
-                                        <div class="team-person-text" style="height: px">
-                                            <p>blablablablablablablabla...... </p>
+                                            <span class="function">Co-Founder</span>
                                         </div>
                                         <div class="team-person-social">
-                                            <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                            <a href="https://www.facebook.com/lin.z.min.1">Facebook</a>
                                         </div>
 
                                     </div>
@@ -119,19 +106,16 @@ google.maps.event.addDomListener(window, "load", initialize);
                             <!-- TEAM PERSON END -->
 
                             <!-- TEAM PERSON -->
-                            <div class="col-md-4 col-sm-6 animation flipInY">
+                            <div class="col-md-4 col-sm-6 col-xs-12 animation flipInY">
                                 <div class="team-person">
-                                    <div class="team-person-photo"><img src="/img/pusheen1.jpg" alt=""></div>
+                                    <div class="team-person-photo"><img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpa1/v/t34.0-12/10859627_923135377704228_457515561_n.jpg?oh=6e792b5fe03f0d260d5affe4d8a1af15&oe=548ED35F&__gda__=1418683776_ebb53f4b8a280773dd97a06111855463" alt=""></div>
                                     <div class="team-person-info">
                                         <div class="team-person-name">
                                             <h4>許佑瑋</h4>
-                                            <span class="function">Chief Executive Officer</span>
-                                        </div>
-                                        <div class="team-person-text" style="height: px">
-                                            <p>blablablablablablablabla...... </p>
+                                            <span class="function">Co-Founder</span>
                                         </div>
                                         <div class="team-person-social">
-                                            <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                            <a href="https://www.facebook.com/hsu.toro">Facebook</a>
                                         </div>
 
                                     </div>
@@ -139,19 +123,16 @@ google.maps.event.addDomListener(window, "load", initialize);
                             </div>
                             <!-- TEAM PERSON END -->
                             <!-- TEAM PERSON -->
-                            <div class="col-md-4 col-sm-6 animation flipInY">
+                            <div class="col-md-4 col-sm-6 col-xs-12 animation flipInY">
                                 <div class="team-person">
-                                    <div class="team-person-photo"><img src="/img/pusheen1.jpg" alt=""></div>
+                                    <div class="team-person-photo"><img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xap1/v/l/t1.0-9/10501586_920573771293722_2110709454606659373_n.jpg?oh=3d144d958a9a92fb41cf08a2b6bc3610&oe=55430421" alt=""></div>
                                     <div class="team-person-info">
                                         <div class="team-person-name">
                                             <h4>林詩雅</h4>
-                                            <span class="function">Chief Executive Officer</span>
-                                        </div>
-                                        <div class="team-person-text" style="height: px">
-                                            <p>blablablablablablablabla...... </p>
+                                            <span class="function">Co-Founder</span>
                                         </div>
                                         <div class="team-person-social">
-                                            <a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Dribbble</a><a href="#">Behance</a>
+                                            <a href="https://www.facebook.com/shiya0315">Facebook</a>
                                         </div>
 
                                     </div>
