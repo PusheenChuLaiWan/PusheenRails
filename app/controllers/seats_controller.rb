@@ -1,4 +1,7 @@
 class SeatsController < ApplicationController
+	require 'time' 
+
+
 	def index
 		@seats = Seat.all
 		@seat = Seat.new 
@@ -21,8 +24,19 @@ class SeatsController < ApplicationController
 
 	def create
 		@seat = Seat.new( seat_params )
+		@seat.name = current_user.name 
+		t = Time.parse( @seat.time ) 
+		t = t + 15
+
+		@seat.dead = t.strftime("%H:%M:%S")
+		t = t + 10 ; 
+		@seat.time = t.strftime("%H:%M:%S")
+
 		@seat.save 
-		redirect_to seats_path 
+		respond_to do |format|
+          format.html { redirect_to seats_path }
+          format.json { render json: @seat.to_json, status: :created , :location => @seat}
+      	end
 	end
 
 	def update 
