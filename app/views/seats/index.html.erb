@@ -118,8 +118,8 @@
                         }) ;
                         $('#js').attr('src','/img/achair1.png');
                     }
-                    else{
-                        if( isHuman == "yes" ){
+                    else if( s1 >= beginTime ){
+                        if( blood != 0  ){
                            $('#js').attr('src','/img/achair2.png') ; 
                           
                             // Let the chair be have something
@@ -128,6 +128,9 @@
                             
                             // is Reserved 
                         }
+                    }
+                    else{
+                        $('#js').attr('src','/img/achair1.png');
                     }
                 }
 
@@ -140,18 +143,26 @@
 </script>
 <div class="full-width fw-borders" style="background: url(/img/pattern/fabric_of_squares_gray.png)">
 <div class="container">
-    <div class="row margin-bot">
+    <!-- <div class="row margin-bot">
         <div class="col-md-4 col-sm-6 animation flipInY">
             <div class="team-person-photo">
                 <img src="/img/achair1.png" alt="" id="js">
             </div>
         </div>
         
-    </div>
+    </div> -->
 
 
       <div class="row margin-bot">
-        <div class="col-md-8 col-sm-8 container">
+        <div class="col-md-5 col-sm-8 animation flipInY">
+            <div class="team-person-photo">
+                <img src="/img/achair1.png" alt="" id="js">
+            </div>
+        </div>
+
+
+
+        <div class="col-md-4 col-sm-6 container">
             
             
             <%= simple_form_for( @seat ) do |f| %>
