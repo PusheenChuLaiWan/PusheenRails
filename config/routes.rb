@@ -7,9 +7,8 @@ Rails.application.routes.draw do
 
   get 'posts/about'
 
-  
   resources :posts, except:[ :show ] 
-  
+  resources :seats   
 
   root 'posts#index'
 
