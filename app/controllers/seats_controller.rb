@@ -25,11 +25,18 @@ class SeatsController < ApplicationController
 	def create
 		@seat = Seat.new( seat_params )
 		@seat.name = current_user.name 
+
+		@seat.beginTime  = @seat.time ;
+		
 		t = Time.parse( @seat.time ) 
 		t = t + 15
 
 		@seat.dead = t.strftime("%H:%M:%S")
-		t = t + 10 ; 
+		if( @seat.period == nil )
+			t = t + 20 
+		else
+			t = t + @seat.period 
+		end 
 		@seat.time = t.strftime("%H:%M:%S")
 
 		@seat.save 

@@ -67,11 +67,7 @@
             <% end %>
 
             <% if user_signed_in? %>
-                <li><%= link_to "預約" , posts_analysis_path %>
-                <ul>
-                    <li><%= link_to "座位預約系統" , posts_pre_path %></li>
-                </ul>
-                </li>
+                <li><%= link_to "預約" , seats_path %></li>
             <% end %>
 
             <% if user_signed_in? %>

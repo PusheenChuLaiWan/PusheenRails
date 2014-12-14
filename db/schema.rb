@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214033358) do
+ActiveRecord::Schema.define(version: 20141214054018) do
 
   create_table "posts", force: true do |t|
     t.string   "name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20141214033358) do
     t.integer  "seat_id"
     t.integer  "deadline"
     t.string   "dead"
+    t.string   "beginTime"
   end
 
   create_table "users", force: true do |t|
