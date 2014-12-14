@@ -1,5 +1,6 @@
 <script>
     var bgColor = $('.label-danger').css('background-color') ;  
+   
     var distance ; 
     var blood ;
     var isHuman = "yes" ; 
@@ -15,37 +16,39 @@
                 var tar = -1 ; 
                 var s = "";
 
-
+/*
                 for(var ind in data){
                     d = data[ind];
                     s += '<h1 class="titl"><label class="label label-danger">' + d.datastream_name + " : " + d.current_value + '</label></h1>' ; 
                 }
-
+*/
                 distance = data[0].current_value ; 
                 blood = data[1].current_value ; 
                 isHuman = data[2].current_value ; 
-
+/*
                 $('.result').html( s ) ; 
                 $('.label-danger').css('background-color' , bgColor ) ; 
 
                 if( data[0].current_value < 35 ){
-                    $('.label-danger').animate({ backgroundColor: 'rgb(0 , 155, 255 )'} , 1000 , 
+                    $('.label-danger').animate({ backgroundColor: 'rgb(255, 155, 150 )'} , 1000 , 
                     function(){
                         bgColor = $('.label-danger').css('background-color') ; 
 
                     }
                     ); 
+
                 }
 
                 else{
-                    $('.label-danger').animate({ backgroundColor: 'rgb(255 , 255, 0 )'} , 1000 , 
+                     
+                    $('.label-danger').animate({ backgroundColor: 'rgb(255 , 155, 150 )'} , 1000 , 
                         function(){
                             bgColor = $('.label-danger').css('background-color') ; 
 
                         }
                     ); 
                 }
-              
+              */
                 setTimeout(worker, 2000);   
             }
         });
@@ -59,7 +62,17 @@
             success: function(data)
             {   
                 var currentdate = new Date();
-                var s1 = currentdate.getHours() + ":" + currentdate.getMinutes() + ":" ;
+                var s1 = "" ; 
+                if( currentdate.getHours() < 10 )
+                    s1 = s1 + '0' + currentdate.getHours() +  ":" ; 
+                else
+                    s1 = s1 + currentdate.getHours() +  ":" ; 
+
+
+                if( currentdate.getMinutes() < 10 )
+                    s1 = s1 + '0' + currentdate.getMinutes() + ":" ; 
+                else
+                    s1 = s1 + currentdate.getMinutes() + ":" ; 
 
                 if( currentdate.getSeconds() < 10 )  
                     s1 = s1 + '0' + currentdate.getSeconds() ;
@@ -72,11 +85,11 @@
                 for( var i in data ){
                     var s2 = data[i].time ;
                     var dead = data[i].dead ; 
-
+                    var beginTime = data[i].beginTime ; 
                     console.log( "EndTime    " + s2 ) ;
                     console.log("DeadLine  " + dead ) ;
 
-                    if(  s1 > dead  && (blood == 0 || isHuman == "no") ){
+                    if(  s1 >= beginTime && s1 > dead  && (blood == 0 ) ){
                         var nowURL = '/seats/' + data[i].id ;
                         $.ajax({
                             type: "DELETE",
@@ -84,35 +97,63 @@
                             success: function(data)
                             { 
                                 
+                                console.log( 'Here~~~ 1') ;
+                                //Let the chair be blank 
                             }
+                           
                         }) ;
+                         $('#js').attr('src','/img/achair1.png');
                     }
-                    else if( s1 > s2 ){
+                    else if( s1 >= beginTime && s1 > s2 ){
                         var nowURL = '/seats/' + data[i].id ;
                         $.ajax({
                             type: "DELETE",
                             url: nowURL,
                             success: function(data)
                             { 
-                                
+                               
+                               console.log( 'Here~~~ 2') ;
+                                //Let the chair be blank
                             }
                         }) ;
+                        $('#js').attr('src','/img/achair1.png');
+                    }
+                    else{
+                        if( isHuman == "yes" ){
+                           $('#js').attr('src','/img/achair2.png') ; 
+                          
+                            // Let the chair be have something
+                        }else{
+                            $('#js').attr('src','/img/achair3.png') ; 
+                            
+                            // is Reserved 
+                        }
                     }
                 }
 
 
-               setTimeout(getter, 200);   
+               setTimeout(getter, 600);   
             }
         
         });
     } )();
 </script>
 <div class="full-width fw-borders" style="background: url(/img/pattern/fabric_of_squares_gray.png)">
-  <div class="container">
+<div class="container">
+    <div class="row margin-bot">
+        <div class="col-md-4 col-sm-6 animation flipInY">
+            <div class="team-person-photo">
+                <img src="/img/achair1.png" alt="" id="js">
+            </div>
+        </div>
+        
+    </div>
+
+
       <div class="row margin-bot">
         <div class="col-md-8 col-sm-8 container">
             
-            <div class="result"></div>
+            
             <%= simple_form_for( @seat ) do |f| %>
 
                 <h4 class="h-light">日期：</h4>
