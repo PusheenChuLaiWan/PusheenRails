@@ -15,7 +15,12 @@
 <div class="boxed">
 
   <%= render 'common/navbar' %>
- 
+  <% if notice %>
+	<p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+	<p class="alert alert-danger"><%= alert %></p>
+  <% end %>
    <%= yield %> <!-- ===============HERE is YIELD================= --> 
 	 <%= render 'common/footer' %>
 </div>

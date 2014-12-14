@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div id="datetimepicker1" class="input-group date">
+                  <input data-format="yyyy-MM-dd" type="text" class="form-control"></input>
+                  <span class="add-on">
+                    <i data-date-icon="glyphicon glyphicon-calendar"></i>
+                  </span>
+                </div>
+                <div id="datetimepicker2" class="input-group">
+                  <input data-format="hh:mm" type="text" class="form-control"></input>
+                  <span class="add-on">
+                    <i data-time-icon="glyphicon glyphicon-time">
+                    </i>
+                  </span>
+                </div>
+                <select class="selectpicker">
+                  <option>30min</option>
+                  <option>60min</option>
+                  <option>90min</option>
+                  <option>120min</option>
+                  <option>150min</option>
+                  <option>180min</option>
+                  <option>210min</option>
+                  <option>240min</option>
+                </select>
+            </div>
+        </div>
+    <script type="text/javascript">
+      $(function() {
+        $('#datetimepicker1').datetimepicker({
+          maskInput: false,
+          pickTime: false
+        });
+        $('#datetimepicker2').datetimepicker({
+          maskInput: false,
+          pickDate: false,
+          pickSeconds: true
+        }); 
+        $(".selectpicker").selectpicker({
+           style: 'btn-info',
+           size: 8
+        });
+      });
+    </script>
+
+  </div>
+</div>

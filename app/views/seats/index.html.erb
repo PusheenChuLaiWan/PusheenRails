@@ -1,0 +1,161 @@
+<script>
+    var bgColor = $('.label-danger').css('background-color') ;  
+    var distance ; 
+    var blood ;
+    var isHuman = "yes" ; 
+
+
+    (function worker() { 
+        $.ajax({
+            type: "GET",
+            url: "/posts",
+            dataType: "json",
+            success: function(data)
+            {   
+                var tar = -1 ; 
+                var s = "";
+
+
+                for(var ind in data){
+                    d = data[ind];
+                    s += '<h1 class="titl"><label class="label label-danger">' + d.datastream_name + " : " + d.current_value + '</label></h1>' ; 
+                }
+
+                distance = data[0].current_value ; 
+                blood = data[1].current_value ; 
+                isHuman = data[2].current_value ; 
+
+                $('.result').html( s ) ; 
+                $('.label-danger').css('background-color' , bgColor ) ; 
+
+                if( data[0].current_value < 35 ){
+                    $('.label-danger').animate({ backgroundColor: 'rgb(0 , 155, 255 )'} , 1000 , 
+                    function(){
+                        bgColor = $('.label-danger').css('background-color') ; 
+
+                    }
+                    ); 
+                }
+
+                else{
+                    $('.label-danger').animate({ backgroundColor: 'rgb(255 , 255, 0 )'} , 1000 , 
+                        function(){
+                            bgColor = $('.label-danger').css('background-color') ; 
+
+                        }
+                    ); 
+                }
+              
+                setTimeout(worker, 2000);   
+            }
+        });
+    })();
+
+    (function getter() { 
+        $.ajax({
+            type: "GET",
+            url: "/seats",
+            dataType: "json",
+            success: function(data)
+            {   
+                var currentdate = new Date();
+                var s1 = currentdate.getHours() + ":" + currentdate.getMinutes() + ":" ;
+
+                if( currentdate.getSeconds() < 10 )  
+                    s1 = s1 + '0' + currentdate.getSeconds() ;
+                else
+                    s1 = s1 + currentdate.getSeconds() ; 
+                
+                console.log( s1 ) ;
+                console.log("blood " + blood ) ; 
+                console.log("isHuman " + isHuman ) ; 
+                for( var i in data ){
+                    var s2 = data[i].time ;
+                    var dead = data[i].dead ; 
+
+                    console.log( "EndTime    " + s2 ) ;
+                    console.log("DeadLine  " + dead ) ;
+
+                    if(  s1 > dead  && (blood == 0 || isHuman == "no") ){
+                        var nowURL = '/seats/' + data[i].id ;
+                        $.ajax({
+                            type: "DELETE",
+                            url: nowURL,
+                            success: function(data)
+                            { 
+                                
+                            }
+                        }) ;
+                    }
+                    else if( s1 > s2 ){
+                        var nowURL = '/seats/' + data[i].id ;
+                        $.ajax({
+                            type: "DELETE",
+                            url: nowURL,
+                            success: function(data)
+                            { 
+                                
+                            }
+                        }) ;
+                    }
+                }
+
+
+               setTimeout(getter, 200);   
+            }
+        
+        });
+    } )();
+</script>
+<div class="full-width fw-borders" style="background: url(/img/pattern/fabric_of_squares_gray.png)">
+  <div class="container">
+      <div class="row margin-bot">
+        <div class="col-md-8 col-sm-8 container">
+            
+            <div class="result"></div>
+            <%= simple_form_for( @seat ) do |f| %>
+
+                <h4 class="h-light">日期：</h4>
+                <div id="datetimepicker1" class="input-group date">
+                     <span class="add-on">
+                        <i data-date-icon="glyphicon glyphicon-calendar"></i>
+                    </span>
+
+                    <%= f.text_field :date, data:{ format: 'yyyy-MM-dd' } , input_html:{ class: "requiredField name input-name" }, label: false %>   
+                </div>
+
+                <h4 class="h-light">時間：</h4>
+                <div id="datetimepicker2" class="input-group">
+                    <span class="add-on">
+                        <i data-time-icon="glyphicon glyphicon-time"></i>
+                    </span>
+                    <%= f.text_field :time, data:{ format: 'hh:mm:ss' } , class: "requiredField name input-name" , label: false  %> 
+                </div>
+
+                <h4 class="h-light">要借多久：</h4>
+                <%= f.input :period, collection: [5,10,15,20], label: false  %>
+               
+                <hr>
+                <%= f.submit "送出" , class: "btn" %> 
+            <% end %>
+
+            <script type="text/javascript">
+              $(function() {
+                $('#datetimepicker1').datetimepicker({
+                  maskInput: false,
+                  pickTime: false
+                });
+                $('#datetimepicker2').datetimepicker({
+                  maskInput: false,
+                  pickDate: false,
+                  pickSeconds: true
+                }); 
+                
+              });
+            </script>
+
+          </div>
+      </div>             
+    </div> <!-- CONTAINER END -->
+</div> <!-- CONTENT END --> 
+

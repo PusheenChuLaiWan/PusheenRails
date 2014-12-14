@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141213115549) do
+ActiveRecord::Schema.define(version: 20141214033358) do
 
   create_table "posts", force: true do |t|
     t.string   "name"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 20141213115549) do
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "seats", force: true do |t|
+    t.string   "date"
+    t.string   "time"
+    t.integer  "period"
+    t.boolean  "isReserved"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.integer  "seat_id"
+    t.integer  "deadline"
+    t.string   "dead"
   end
 
   create_table "users", force: true do |t|
