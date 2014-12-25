@@ -82,6 +82,7 @@
                 console.log( s1 ) ;
                 console.log("blood " + blood ) ; 
                 console.log("isHuman " + isHuman ) ; 
+                if( data.length == 0)  $('#js').attr('src','/img/achair1.png');
                 for( var i in data ){
                     var s2 = data[i].time ;
                     var dead = data[i].dead ; 
